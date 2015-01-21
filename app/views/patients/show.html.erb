@@ -1,0 +1,10 @@
+<h1>Patient</h1>
+<ul>
+<li>Patient name: <%= @patient.first_name %>
+<%= @patient.last_name %></li>
+<li>Patient Date of Birth: <%= @patient.dob %></li>
+<li>Patient Issue: <%= @patient.description %></li>
+<li>Patient Gender: <%= @patient.gender %></li>
+<li>Patient Bloodtype: <%= @patient.blood_type %></li>
+</ul>
+<%= link_to "Home", root_path %>
