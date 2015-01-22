@@ -1,0 +1,14 @@
+<h1>Prescription Data</h1>
+<ul>
+<li>Name: <%= @drug.name %></li>
+<br>
+<li>Description: <%= @drug.description %></li>
+<br>
+<li>Cost: <%= @drug.cost %></li>
+<br>
+</ul>
+<br>
+<%= link_to "Edit", edit_clinic_path(@clinic) %>
+<%= link_to "Home", drugs_path %>
+<br>
+

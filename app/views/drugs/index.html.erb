@@ -1,0 +1,14 @@
+<h1>Prescriptions</h1>
+
+<% @drugs.each do |drug| %>
+  <%= link_to drug.name, drug_path(drug) %>
+  <br>
+  <%= drug.description %>
+  <br>
+  <%= drug.cost %>
+  <br>
+  <%= link_to "Edit", edit_drug_path(drug) %>
+  <br>
+  <%= link_to "Delete", drug_path(drug), method: :delete %>
+  <br>
+<% end %>

@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121172513) do
+ActiveRecord::Schema.define(version: 20150122195725) do
+
+  create_table "clinics", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
+    t.string   "address",    limit: 255
+    t.string   "city",       limit: 255
+    t.string   "state",      limit: 255
+    t.integer  "zip",        limit: 4
+  end
+
+  create_table "drugs", force: :cascade do |t|
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.float    "cost",        limit: 24
+  end
 
   create_table "patients", force: :cascade do |t|
     t.datetime "created_at",                null: false
@@ -22,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150121172513) do
     t.text     "description", limit: 65535
     t.string   "gender",      limit: 255
     t.string   "blood_type",  limit: 255
+    t.integer  "clinic_id",   limit: 4
   end
 
 end

@@ -17,6 +17,9 @@ class Patient < ActiveRecord::Base
   validates :blood_type, presence: true
   validate :invalid
 
+  belongs_to :clinic
+  has_many :drugs, dependent: :destroy
+
   def invalid
     if self.dob
       errors.add(:dob, 'is invalid. You must have been born more than 10 years ago.') if self.dob > 10.years.ago.to_date
