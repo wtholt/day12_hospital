@@ -18,6 +18,8 @@
       <li>Gender: <%= patient.gender %></li>
       <li>Blood Type: <%= patient.blood_type %></li>
       <li><%= link_to "Edit", edit_clinic_patient_path(@clinic, patient) %></li>
+      <li> <%= link_to "Delete", clinic_patient_path(@clinic, patient), method: :delete %></li>
+
       <br>
     <% end %>
   </ul>

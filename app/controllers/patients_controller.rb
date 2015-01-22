@@ -1,6 +1,8 @@
 class PatientsController < ApplicationController
   def index
     @patients = Patient.all
+    # @patient = Patient.find params[:id]
+    @clinic = Clinic.find params[:clinic_id]
   end
 
   def new
@@ -11,23 +13,26 @@ class PatientsController < ApplicationController
   def create
     @clinic = Clinic.find params[:clinic_id]
     @patient = @clinic.patients.create patient_params
-    redirect_to clinic_path(@clinic)
+    redirect_to @clinic
   end
   
   def edit
     @patient = Patient.find params[:id]
+    @clinic = Clinic.find params[:clinic_id]
   end
   
   def update
     @patient = Patient.find params[:id]
+    @clinic = Clinic.find params[:clinic_id]
     @patient.update_attributes patient_params
-    redirect_to root_path
+    redirect_to @clinic
   end
   
   def destroy
     @patient = Patient.find params[:id]
+    @clinic = Clinic.find params[:clinic_id]
     @patient.delete
-    redirect_to root_path
+    redirect_to @clinic
   end
 
 private
@@ -44,7 +49,7 @@ private
   end
 end
 
-private
+
   def set_clinic
     @clinic = Clinic.find(params[:id])
   end
