@@ -21,7 +21,7 @@ class DrugsController < ApplicationController
     @clinic = Clinic.find params[:clinic_id]
     @patient = @clinic.patients.find params[:patient_id]
     @drug = @patient.drugs.create drug_params
-    redirect_to clinic_patient_path(@clinic, @patient)
+    redirect_to clinic_patient_drugs_path(@clinic, @patient)
   end
   
   def edit
@@ -35,7 +35,7 @@ class DrugsController < ApplicationController
     @patient = @clinic.patients.find params[:patient_id]
     @drug = @patient.drugs.find params[:id]
     @drug.update_attributes drug_params
-    redirect_to clinic_patient_drug_path(@clinic, @patient, @drug)
+    redirect_to clinic_patient_drugs_path(@clinic, @patient)
   end
 
   def destroy
@@ -43,7 +43,7 @@ class DrugsController < ApplicationController
     @patient = @clinic.patients.find params[:patient_id]
     @drug = @patient.drugs.find params[:id]
     @drug.delete
-    redirect_to clinic_patient_drug_path(@clinic, @patient, @drug)
+    redirect_to clinic_patient_drugs_path(@clinic, @patient)
   end
 
 private
