@@ -42,7 +42,7 @@ class PatientsController < ApplicationController
   def destroy
     @patient = Patient.find params[:id]
     @clinic = Clinic.find params[:clinic_id]
-    @patient.delete
+    @patient.destroy
     redirect_to @clinic
   end
 

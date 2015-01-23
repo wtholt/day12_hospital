@@ -8,6 +8,9 @@
 <li>Patient Bloodtype: <%= @patient.blood_type %></li>
 </ul>
 <%= link_to "Add Prescription", new_clinic_patient_drug_path(@clinic, @patient) %>
+|
 <%= link_to "View Prescriptions", clinic_patient_drugs_path(@clinic, @patient) %>
-<%= link_to "Back", clinic_path(@clinic) %>
+<br>
+<%= link_to "Return to Clinic", clinic_path(@clinic) %>
+|
 <%= link_to "Home", root_path %>

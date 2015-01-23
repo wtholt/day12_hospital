@@ -11,7 +11,7 @@
   <li>State: <%= clinic.state %></li>
   <li>Zip: <%= clinic.zip %></li>
   <%= link_to "Edit", edit_clinic_path(clinic) %>
-  <%= link_to "Delete", clinic_path(clinic), method: :delete %>
+  <%= link_to "Delete", clinic_path(clinic), method: :delete, data: {confirm: "Are you sure you want to delete record?"} %>
   <br>
 <% end %>
 </ul>
