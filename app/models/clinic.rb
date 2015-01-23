@@ -1,5 +1,6 @@
 class Clinic < ActiveRecord::Base
       has_many :patients, dependent: :destroy
+      has_many :drugs, through: :patients
   STATES = [
     ["AL", "Alabama"],
     ["AK", "Alaska"],

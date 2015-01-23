@@ -8,7 +8,9 @@ class DrugsController < ApplicationController
   end
   
   def new
-    @drug = Drug.new
+    @clinic = Clinic.find params[:clinic_id]
+    @patient = @clinic.patients.find params[:patient_id]
+    @drug = @patient.drugs.new
   end
   
   def create
@@ -41,3 +43,5 @@ private
     )
   end
 end
+
+

@@ -1,3 +1,3 @@
 class Drug < ActiveRecord::Base
-  belongs_to :patients
+  belongs_to :patient
 end
