@@ -30,7 +30,7 @@ class ClinicsController < ApplicationController
 
   def destroy
     @clinic = Clinic.find params[:id]
-    @clinic.delete
+    @clinic.destroy
     redirect_to root_path
   end
 

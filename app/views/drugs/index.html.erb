@@ -1,17 +1,21 @@
 <h1>Prescriptions</h1>
 <%= link_to "Back", clinic_patient_path(@clinic, @patient) %>
+<%= link_to "Add another Prescription", new_clinic_patient_drug_path(@clinic, @patient)  %>
 
 <ul>
 <% @drugs.each do |drug| %>
-  <li><%= link_to drug.name, clinic_patient_drug_path(@clinic, @patient, drug) %></li>
+  <br>
+  <li><strong>Prescription Name:</strong> <%= drug.name %></li>
+  <br>
+  <li><%= link_to "View Prescription", clinic_patient_drug_path(@clinic, @patient, drug) %></li>
   <br>
   <li><strong>Prescription Description:</strong> <%= drug.description %></li>
   <br>
   <li><strong>Prescription Cost:</strong> <%= drug.cost %></li>
   <br>
-  <li><%= link_to "Edit", edit_clinic_patient_drug_path(@clinic, @patient, drug) %></li>
+  <%= link_to "Edit", edit_clinic_patient_drug_path(@clinic, @patient, drug) %>
   <br>
-  <li><%= link_to "Delete", clinic_patient_drug_path(@clinic, @patient, drug), method: :delete %></li>
+  <%= link_to "Delete", clinic_patient_drug_path(@clinic, @patient, drug), method: :delete %>
   <br> 
 </ul>
 <% end %>

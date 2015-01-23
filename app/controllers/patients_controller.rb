@@ -18,7 +18,13 @@ class PatientsController < ApplicationController
   def create
     @clinic = Clinic.find params[:clinic_id]
     @patient = @clinic.patients.create patient_params
+    if @patient.save
+      flash[:notice] = 'Patient was successfully created.'
     redirect_to @clinic
+  else
+      flash[:error] = 'Patient was not saved!'
+      render :new
+    end
   end
   
   def edit
