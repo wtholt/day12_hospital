@@ -5,11 +5,11 @@
 <ul>
 <% @clinics.each do |clinic| %>
   <br>
-  <li>Name: <%= link_to clinic.name, clinic_path(clinic) %></li>
-  <li>Address: <%= clinic.address %></li>
-  <li>City: <%= clinic.city %></li>
-  <li>State: <%= clinic.state %></li>
-  <li>Zip: <%= clinic.zip %></li>
+  <li><strong>Name:</strong> <%= link_to clinic.name, clinic_path(clinic) %></li>
+  <li><strong>Address:</strong> <%= clinic.address %></li>
+  <li><strong>City:</strong> <%= clinic.city %></li>
+  <li><strong>State:</strong> <%= clinic.state %></li>
+  <li><strong>Zip:</strong> <%= clinic.zip %></li>
   <%= link_to "Edit", edit_clinic_path(clinic) %>
   <%= link_to "Delete", clinic_path(clinic), method: :delete, data: {confirm: "Are you sure you want to delete record?"} %>
   <br>
