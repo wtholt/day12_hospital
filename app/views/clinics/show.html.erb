@@ -11,7 +11,7 @@
   <%= link_to "Add Patient", new_clinic_patient_path(@clinic) %>
   <ul>
     <% @patients.each do |patient| %>
-      <li>First name: <%= patient.first_name %></li>
+      <li>First name: <%= link_to patient.first_name, clinic_patient_path(@clinic, patient) %></li>
       <li>Last name: <%= patient.last_name %></li>
       <li>Description: <%= patient.description %></li>
       <li>DOB: <%= patient.dob %></li>

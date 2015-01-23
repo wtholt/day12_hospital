@@ -5,6 +5,11 @@ class PatientsController < ApplicationController
     @clinic = Clinic.find params[:clinic_id]
   end
 
+  def show
+    @clinic = Clinic.find params[:clinic_id]
+    @patient = Patient.find params[:id]
+  end
+
   def new
     @clinic = Clinic.find params[:clinic_id]
     @patient = @clinic.patients.new
