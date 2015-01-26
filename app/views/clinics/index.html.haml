@@ -1,0 +1,8 @@
+%h1 Clinics
+%ul
+  - @clinics.each do |clinic|
+    %li= clinic.name
+    %li= clinic.address
+    %li= clinic.city
+    %li= clinic.state
+    %li= clinic.zip

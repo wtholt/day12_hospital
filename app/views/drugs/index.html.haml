@@ -1,0 +1,26 @@
+%h1 Prescriptions
+= link_to "Return to Patient Record", clinic_patient_path(@clinic, @patient)
+|
+= link_to "Add another Prescription", new_clinic_patient_drug_path(@clinic, @patient)
+%ul
+  - @drugs.each do |drug|
+    %br/
+    %li= link_to "View Prescription", clinic_patient_drug_path(@clinic, @patient, drug)
+    %br/
+    %li
+      %strong Prescription Name:
+      = drug.name
+    %br/
+    %li
+      %strong Prescription Description:
+      = drug.description
+    %br/
+    %li
+      %strong Prescription Cost:
+      = drug.cost
+    %br/
+    = link_to "Edit", edit_clinic_patient_drug_path(@clinic, @patient, drug)
+    %br/
+    = link_to "Delete", clinic_patient_drug_path(@clinic, @patient, drug), method: :delete, data: {confirm: "Are you sure you want to delete record?"}
+    %br/
+    = "---------------------------"

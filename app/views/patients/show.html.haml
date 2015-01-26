@@ -1,0 +1,29 @@
+%h1 Patient
+%ul
+  %li
+    %strong Patient name:
+    = @patient.first_name
+    = @patient.last_name
+  %br/
+  %li
+    %strong Patient Date of Birth:
+    = @patient.dob
+  %br/
+  %li
+    %strong Patient Issue:
+    = @patient.description
+  %br/
+  %li
+    %strong Patient Gender:
+    = @patient.gender
+  %br/
+  %li
+    %strong Patient Bloodtype:
+    = @patient.blood_type
+= link_to "Add Prescription", new_clinic_patient_drug_path(@clinic, @patient)
+|
+= link_to "View Prescriptions", clinic_patient_drugs_path(@clinic, @patient)
+%br/
+= link_to "Return to Clinic", clinic_path(@clinic)
+|
+= link_to "Home", root_path
