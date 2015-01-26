@@ -6,6 +6,8 @@ class ClinicsController < ApplicationController
 
   def show
     @patients = @clinic.patients
+    @doctor = Doctor.new
+    @doctors = Doctor.all
   end
 
   def new
@@ -34,6 +36,20 @@ class ClinicsController < ApplicationController
     redirect_to root_path
   end
 
+  def create_doctor
+    @clinic = Clinic.find params[:id]
+    @doctor = @clinic.doctors.create doctor_params
+    redirect_to clinic_path(@clinic)
+  end
+
+  def destroy_doctor
+    #@clinic = Clinic.find params[:id]
+    @doctor = Doctor.find params[:id]
+    @doctor.destroy
+    redirect_to clinic_path(clinic)
+  end
+
+  
 private
   def clinic_params
     params.require(:clinic).permit(
@@ -43,6 +59,11 @@ private
         :state,
         :zip,
       )
+  end
+  def doctor_params
+    params.require(:doctor).permit(
+      :name,
+    )
   end
 end
 

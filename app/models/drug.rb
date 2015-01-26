@@ -1,3 +1,4 @@
 class Drug < ActiveRecord::Base
-  belongs_to :patient
+  has_many :patient_drugs
+  has_many :patients, through: :patient_drugs
 end

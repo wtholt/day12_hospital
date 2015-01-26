@@ -23,5 +23,19 @@
   = f.label(:blood_type, "Blood Type: ")
   = f.select :blood_type, options_for_select(Patient::BLOOD_TYPES, f.object.blood_type)
   %br/
+  = hidden_field_tag 'patient[drug_ids][]', ''
+  - @drugs.each do |drug|
+    = check_box_tag 'patient[drug_ids][]', drug.id, @patient.drugs.include?(drug)
+    = drug.name
+    = drug.description
+    = drug.cost
+    %br
+  Doctors
+  %br
+  = @doctors.each do |doctor|
+    = check_box_tag 'patient[doctor_ids][]', doctor.id, @patient.doctors.include?(doctor)
+    = doctor.name
+    %br
+  %br
   = f.submit
 = link_to "Cancel", clinic_path(@clinic)

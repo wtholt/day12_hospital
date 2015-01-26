@@ -1,49 +1,38 @@
 class DrugsController < ApplicationController
   def index
-    @clinic = Clinic.find params[:clinic_id]
-    @patient = @clinic.patients.find params[:patient_id]
-    @drugs = @patient.drugs
+    @drugs = Drug.all
   end
-  
+
   def show
-    @clinic = Clinic.find params[:clinic_id]
-    @patient = @clinic.patients.find params[:patient_id]
-    @drug = @patient.drugs.find params[:id]
+    @drug = Drug.find params[:id]
   end
-  
+    
   def new
-    @clinic = Clinic.find params[:clinic_id]
-    @patient = @clinic.patients.find params[:patient_id]
-    @drug = @patient.drugs.new
+    @drug = Drug.new
+    @patients = Patient.all
   end
   
   def create
-    @clinic = Clinic.find params[:clinic_id]
-    @patient = @clinic.patients.find params[:patient_id]
-    @drug = @patient.drugs.create drug_params
-    redirect_to clinic_patient_drugs_path(@clinic, @patient)
+    @drug = Drug.create drug_params
+    @patients = Patient.all
+    redirect_to drugs_path
   end
   
   def edit
-    @clinic = Clinic.find params[:clinic_id]
-    @patient = @clinic.patients.find params[:patient_id]
-    @drug = @patient.drugs.find params[:id]
+    @drug = Drug.find params[:id]
+    @patients = Patient.all
   end
 
   def update
-    @clinic = Clinic.find params[:clinic_id]
-    @patient = @clinic.patients.find params[:patient_id]
-    @drug = @patient.drugs.find params[:id]
+    @drug = Drug.find params[:id]
     @drug.update_attributes drug_params
-    redirect_to clinic_patient_drugs_path(@clinic, @patient)
+    redirect_to drugs_path
   end
 
   def destroy
-    @clinic = Clinic.find params[:clinic_id]
-    @patient = @clinic.patients.find params[:patient_id]
-    @drug = @patient.drugs.find params[:id]
-    @drug.delete
-    redirect_to clinic_patient_drugs_path(@clinic, @patient)
+    @drug = Drug.find params[:id]
+    @drug.destroy
+    redirect_to drugs_path
   end
 
 private
@@ -52,6 +41,7 @@ private
       :name,
       :description,
       :cost,
+      patient_ids: []
     )
   end
 end

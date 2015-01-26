@@ -18,7 +18,9 @@ class Patient < ActiveRecord::Base
   validate :invalid
 
   belongs_to :clinic
-  has_many :drugs, dependent: :destroy
+  has_many :patient_drugs
+  has_many :drugs, through: :patient_drugs
+  has_many :doctors, as: :doctorable
 
   def invalid
     if self.dob

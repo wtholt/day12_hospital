@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
   resources :clinics do
+    member do
+      post :create_doctor
+      delete :destroy_doctor
+    end
     resources :patients do
-      resources :drugs do
+      member do
+        post :create_doctor
+        delete :destroy_doctor
       end
     end
-  end
+
+end
+  resources :drugs
+      
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

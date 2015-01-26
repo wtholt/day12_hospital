@@ -20,10 +20,30 @@
   %li
     %strong Patient Bloodtype:
     = @patient.blood_type
-= link_to "Add Prescription", new_clinic_patient_drug_path(@clinic, @patient)
-|
-= link_to "View Prescriptions", clinic_patient_drugs_path(@clinic, @patient)
+
+%strong
+  Prescription List:
+= link_to "Add Prescription", edit_clinic_patient_path(@clinic, @patient)
+- @drugs.each do |drug|
+  = drug.name
+  = drug.description
+  = drug.cost
+
 %br/
+
+%strong
+  Doctor List:
+= form_for @doctor, url: create_doctor_clinic_patient_path(@clinic, @patient) do |f| 
+  = f.label :name 
+  = f.text_field :name
+  %br
+  = f.submit
+
+- @doctors.each do |doctor|
+  %strong Name:
+  = doctor.name
+  = link_to "Delete Doctor", destroy_doctor_clinic_patient_path(@clinic, @patient), method: :delete
+  %br
 = link_to "Return to Clinic", clinic_path(@clinic)
 |
 = link_to "Home", root_path

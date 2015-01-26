@@ -1,4 +1,4 @@
-= form_for [@clinic, @patient, @drug] do |f|
+= form_for [@drug] do |f|
   = f.label :name
   = f.text_field :name
   %br/
@@ -8,4 +8,20 @@
   = f.label :cost
   = f.text_field :cost
   %br/
+  = hidden_field_tag 'drug[patient_ids][]', ''
+  - @patients.each do |patient|
+    = check_box_tag 'drug[patient_ids][]', patient.id, @drug.patients.include?(patient)
+    = patient.first_name
+    %br
+    = patient.last_name
+    %br
+    = patient.description
+    %br
+    = patient.dob
+    %br
+    = patient.gender
+    %br
+    = patient.blood_type
+    %br
+  %br
   = f.submit

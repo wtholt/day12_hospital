@@ -18,6 +18,8 @@
     = @clinic.zip
 %p
   = link_to "Add Patient", new_clinic_patient_path(@clinic)
+  %br
+  = link_to "Add Prescription", new_drug_path
   %br/
   %br/
   %strong Patient List:
@@ -44,8 +46,21 @@
       = patient.blood_type
     = link_to "View Patient Records", clinic_patient_path(@clinic, patient)
     |
-    \#{link_to "Edit", edit_clinic_patient_path(@clinic, patient)}
+    = link_to "Edit", edit_clinic_patient_path(@clinic, patient)
     |
-    \#{link_to "Delete", clinic_patient_path(@clinic, patient), method: :delete, data: {confirm: "Are you sure you want to delete record?"}}
+    = link_to "Delete", clinic_patient_path(@clinic, patient), method: :delete
     %br/
+
+= form_for @doctor, url: create_doctor_clinic_path(@clinic) do |f| 
+  = f.label :name 
+  = f.text_field :name
+  %br
+  = f.submit
+
+- @doctors.each do |doctor|
+  %strong Name:
+  = doctor.name
+  = link_to "Delete Doctor", destroy_doctor_clinic_path(doctor), method: :delete
+  %br
 = link_to "Home", root_path
+

@@ -8,16 +8,22 @@ class PatientsController < ApplicationController
   def show
     @clinic = Clinic.find params[:clinic_id]
     @patient = Patient.find params[:id]
+    @drugs = @patient.drugs
+    @doctor = Doctor.new
+    @doctors = @patient.doctors
   end
 
   def new
     @clinic = Clinic.find params[:clinic_id]
     @patient = @clinic.patients.new
+    @drugs = Drug.all
+    @doctors = Doctor.all
   end
   
   def create
     @clinic = Clinic.find params[:clinic_id]
     @patient = @clinic.patients.create patient_params
+    @drugs = Drug.all
     if @patient.save
       flash[:notice] = 'Patient was successfully created.'
     redirect_to @clinic
@@ -30,11 +36,13 @@ class PatientsController < ApplicationController
   def edit
     @patient = Patient.find params[:id]
     @clinic = Clinic.find params[:clinic_id]
+    @drugs = Drug.all
   end
   
   def update
     @patient = Patient.find params[:id]
     @clinic = Clinic.find params[:clinic_id]
+    @drugs = Drug.all
     @patient.update_attributes patient_params
     redirect_to @clinic
   end
@@ -46,6 +54,13 @@ class PatientsController < ApplicationController
     redirect_to @clinic
   end
 
+  def create_doctor
+    @clinic = Clinic.find params[:clinic_id]
+    @patient = Patient.find params[:id]
+    @doctor = @patient.doctors.create doctor_params
+    redirect_to clinic_patient_path(@clinic, @patient)
+  end
+
 private
 
   def patient_params
@@ -55,9 +70,18 @@ private
         :dob,
         :description,
         :gender,
-        :blood_type
+        :blood_type,
+        drug_ids: []
       )
   end
+  def doctor_params
+    params.require(:doctor).permit(
+        :name,
+    )
+  end
+
+
+
 end
 
 
