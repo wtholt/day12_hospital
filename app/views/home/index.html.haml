@@ -1,24 +1,37 @@
-%h1 Hospitals
-= link_to "New Clinic", new_clinic_path
-%br/
-%ul
-  - @clinics.each do |clinic|
+.container
+  .row
+    .col-md-12.text-center.jumbotron
+      %h1 Clinics
+.container
+  .row
+    .col-md-12.text-center
+      %h3
+      .btn.btn-default
+        = link_to "New Clinic", new_clinic_path
     %br/
-    %li
-      %strong Name:
-      = link_to clinic.name, clinic_path(clinic)
-    %li
-      %strong Address:
-      = clinic.address
-    %li
-      %strong City:
-      = clinic.city
-    %li
-      %strong State:
-      = clinic.state
-    %li
-      %strong Zip:
-      = clinic.zip
-    = link_to "Edit", edit_clinic_path(clinic)
-    = link_to "Delete", clinic_path(clinic), method: :delete, data: {confirm: "Are you sure you want to delete record?"}
-    %br/
+.container
+  .row
+  .col-md-12.text-center
+    / %ul.list-unstyled
+    - @clinics.each do |clinic|
+      .col-md-4
+        %br
+        %strong Name:
+        = link_to clinic.name, clinic_path(clinic)
+        %br
+        %strong Address:
+        = clinic.address
+        %br
+        %strong City:
+        = clinic.city
+        %br
+        %strong State:
+        = clinic.state
+        %br
+        %strong Zip:
+        = clinic.zip
+        %br
+        = link_to "Edit", edit_clinic_path(clinic)
+        |
+        = link_to "Delete", clinic_path(clinic), method: :delete, data: {confirm: "Are you sure you want to delete record?"}
+        %br

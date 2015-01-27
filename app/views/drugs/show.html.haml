@@ -1,18 +1,27 @@
-%h1 Prescription Data
-%ul
-  %li
-    %strong Prescription name:
-    = @drug.name
-  %br/
-  %li
-    %strong Prescription description:
-    = @drug.description
-  %br/
-  %li
-    %strong Prescription cost:
-    = @drug.cost
-  %br/
-%br/
-= link_to "Edit", edit_drug_path(@drug)
-= link_to "Home", drugs_path
-%br/
+.container
+  .row
+    .col-md-12.text-center.jumbotron
+      %h1 Prescription Data
+.container
+  .row
+    .col-md-12.text-center
+      = link_to "Edit", edit_drug_path(@drug)
+
+.container
+  .row
+    .col-md-4
+      %strong Prescription name
+      %br
+      = @drug.name
+      %br
+    .col-md-4
+      %strong Prescription description
+      %br
+      = @drug.description
+      %br
+    .col-md-4
+      %strong Prescription cost
+      %br
+      = @drug.cost
+      %br
+

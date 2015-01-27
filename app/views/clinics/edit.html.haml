@@ -1,3 +1,16 @@
-%h1 Edit Clinic
-= render 'form'
-= link_to "Cancel", root_path
+.container
+  .row
+    %h1
+      .col-md-12.text-center.jumbotron
+        Edit Clinic
+.container
+  .row
+    .col-md-12.text-center
+      %h4
+        Edit Clinic Information
+
+.container
+  .row
+    .col-md-12.text-center
+      = render 'form'
+      = link_to "Cancel", root_path

@@ -7,4 +7,31 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    .navbar.navbar-inverse
+      .container-fluid
+        .dropdown
+          %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", :type => "button"}
+            Dropdown
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
+            %li{:role => "presentation"}
+              %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Action
+            %li{:role => "presentation"}
+              %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Another action
+            %li{:role => "presentation"}
+              %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Something else here
+            %li{:role => "presentation"}
+              %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Separated link
+        %form.navbar-form.navbar-right{:role => "search"}
+          .form-group
+            %input.form-control{:placeholder => "Search", :type => "text"}
+          %button.btn.btn-success{:type => "submit"} Search
+
     = yield
+
+  .footer
+  .container
+    %p.footer-text.text-center
+      %span
+        = link_to "Home", root_path 
+    

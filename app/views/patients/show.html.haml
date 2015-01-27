@@ -1,50 +1,68 @@
-%h1 Patient
-%ul
-  %li
-    %strong Patient name:
-    = @patient.first_name
-    = @patient.last_name
-  %br/
-  %li
-    %strong Patient Date of Birth:
-    = @patient.dob
-  %br/
-  %li
-    %strong Patient Issue:
-    = @patient.description
-  %br/
-  %li
-    %strong Patient Gender:
-    = @patient.gender
-  %br/
-  %li
-    %strong Patient Bloodtype:
-    = @patient.blood_type
+.container
+  .row
+    .col-md-12.text-center.jumbotron
+      %h1 Patient Information
+.container
+  .row
+    .col-md-12.text-center
+      %ul.list-unstyled
+        %li
+          %strong Patient name:
+          = @patient.first_name
+          = @patient.last_name
+        %br/
+        %li
+          %strong Patient Date of Birth:
+          = @patient.dob
+        %br/
+        %li
+          %strong Patient Issue:
+          = @patient.description
+        %br/
+        %li
+          %strong Patient Gender:
+          = @patient.gender
+        %br/
+        %li
+          %strong Patient Bloodtype:
+          = @patient.blood_type
+.container
+  .row
+    .col-md-12.text-center
+      %h4
+        = link_to "Add/Edit Prescription", edit_clinic_patient_path(@clinic, @patient)
+      %br
+      %strong
+        Prescription List:
+      - @drugs.each do |drug|
+        = drug.name
+        = drug.description
+        = drug.cost
 
-%strong
-  Prescription List:
-= link_to "Add Prescription", edit_clinic_patient_path(@clinic, @patient)
-- @drugs.each do |drug|
-  = drug.name
-  = drug.description
-  = drug.cost
+      %br/
+.container
+  .row
+    .col-md-12.text-center
+      %strong
+        Add Doctor to Patient:
+      = form_for @doctor, url: create_doctor_clinic_patient_path(@clinic, @patient) do |f| 
+        = f.label :name 
+        = f.text_field :name
+        %br
+        = f.submit
+%br
+.container
+  .row
+    .col-md-12.text-center
+      %strong
+        Doctor List
 
-%br/
-
-%strong
-  Doctor List:
-= form_for @doctor, url: create_doctor_clinic_patient_path(@clinic, @patient) do |f| 
-  = f.label :name 
-  = f.text_field :name
-  %br
-  = f.submit
-
-- @doctors.each do |doctor|
-  %strong Name:
-  = doctor.name
-  %br
-  = link_to "Delete Doctor", destroy_doctor_clinic_patient_path(@patient, doctor), method: :delete
-  %br
-= link_to "Return to Clinic", clinic_path(@clinic)
-|
-= link_to "Home", root_path
+      - @doctors.each do |doctor|
+        %br
+        %strong Name:
+        = doctor.name
+        %br
+        = link_to "Delete Doctor", destroy_doctor_clinic_patient_path(@patient, doctor), method: :delete
+        %br
+      = link_to "Return to Clinic", clinic_path(@clinic)
+      %br

@@ -1,26 +1,28 @@
-%h1 Prescriptions
-= link_to "Home", root_path
-|
-= link_to "Add another Prescription", new_drug_path
-%ul
-  - @drugs.each do |drug|
-    %br/
-    %li= link_to "View Prescription", drug_path(drug)
-    %br/
-    %li
-      %strong Prescription Name:
-      = drug.name
-    %br/
-    %li
-      %strong Prescription Description:
-      = drug.description
-    %br/
-    %li
-      %strong Prescription Cost:
-      = drug.cost
-    %br/
-    = link_to "Edit", edit_drug_path(drug)
-    %br/
-    = link_to "Delete", drug_path(drug), method: :delete
-    %br/
-    = "---------------------------"
+.container
+  .row
+    .col-md-12.text-center.jumbotron
+      %h1 Prescriptions
+.container
+  .row
+    .col-md-12.text-center
+      = link_to "Home", root_path
+      |
+      = link_to "Add another Prescription", new_drug_path
+.container
+  .row
+    - @drugs.each do |drug|
+      .col-md-4
+        %br/
+        = link_to "View Prescription", drug_path(drug)
+        %br/
+        %strong Prescription Name:
+        = drug.name
+        %br/
+        %strong Prescription Description:
+        = drug.description
+        %br
+        %strong Prescription Cost:
+        = drug.cost
+        %br
+        = link_to "Edit", edit_drug_path(drug)
+        = link_to "Delete", drug_path(drug), method: :delete

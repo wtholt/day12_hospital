@@ -8,20 +8,21 @@
   = f.label :cost
   = f.text_field :cost
   %br/
+  %h4 Choose Patient
   = hidden_field_tag 'drug[patient_ids][]', ''
   - @patients.each do |patient|
-    = check_box_tag 'drug[patient_ids][]', patient.id, @drug.patients.include?(patient)
-    = patient.first_name
-    %br
-    = patient.last_name
-    %br
-    = patient.description
-    %br
-    = patient.dob
-    %br
-    = patient.gender
-    %br
-    = patient.blood_type
-    %br
+    .col-md-4
+      = check_box_tag 'drug[patient_ids][]', patient.id, @drug.patients.include?(patient)
+      %br
+      = patient.first_name
+      = patient.last_name
+      |
+      = patient.description
+      |
+      = patient.dob
+      |
+      = patient.gender
+      |
+      = patient.blood_type
   %br
   = f.submit

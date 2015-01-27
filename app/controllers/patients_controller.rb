@@ -45,7 +45,7 @@ class PatientsController < ApplicationController
     @clinic = Clinic.find params[:clinic_id]
     @drugs = Drug.all
     @patient.update_attributes patient_params
-    redirect_to @clinic
+    redirect_to clinic_patient_path(@clinic, @patient)
   end
   
   def destroy

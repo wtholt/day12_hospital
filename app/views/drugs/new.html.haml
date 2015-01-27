@@ -1,3 +1,10 @@
-%h1 New Prescription
-= render 'form'
-= #link_to "Cancel", clinic_patient_path(@clinic, @patient)
+.container
+  .row
+    .col-md-12.text-center.jumbotron
+      %h1 New Prescription
+
+.container
+  .row
+    .col-md-12.text-center
+      = render 'form'
+      = #link_to "Cancel", clinic_path(clinic)

@@ -1,67 +1,93 @@
-%h1 Clinic
-%h4 Clinic Information
-%ul
-  %li
-    %strong Name:
-    = @clinic.name
-  %li
-    %strong Address:
-    = @clinic.address
-  %li
-    %strong City:
-    = @clinic.city
-  %li
-    %strong State:
-    = @clinic.state
-  %li
-    %strong Zip:
-    = @clinic.zip
-%p
-  = link_to "Add Patient", new_clinic_patient_path(@clinic)
-  %br
-  = link_to "Add Prescription", new_drug_path
-  %br/
-  %br/
-  %strong Patient List:
-%ul
-  - @patients.each do |patient|
-    %br/
-    %li
-      %strong First name:
-      = patient.first_name
-    %li
-      %strong Last name:
-      = patient.last_name
-    %li
-      %strong Description:
-      = patient.description
-    %li
-      %strong DOB:
-      = patient.dob
-    %li
-      %strong Gender:
-      = patient.gender
-    %li
-      %strong Blood Type:
-      = patient.blood_type
-    = link_to "View Patient Records", clinic_patient_path(@clinic, patient)
-    |
-    = link_to "Edit", edit_clinic_patient_path(@clinic, patient)
-    |
-    = link_to "Delete", clinic_patient_path(@clinic, patient), method: :delete
-    %br/
+.container
+  .row
+    .col-md-12.text-center.jumbotron
+      %h1 Clinic Information
+.container
+  .row
+    .col-md-12.text-center
+      %h4 Clinic Information
+.container
+  .row
+    .col-md-12.text-center
+      %ul.list-unstyled
+        %li
+          %strong Name:
+          = @clinic.name
+        %li
+          %strong Address:
+          = @clinic.address
+        %li
+          %strong City:
+          = @clinic.city
+        %li
+          %strong State:
+          = @clinic.state
+        %li
+          %strong Zip:
+          = @clinic.zip
+      %p
 
-= form_for @doctor, url: create_doctor_clinic_path(@clinic) do |f| 
-  = f.label :name 
-  = f.text_field :name
-  %br
-  = f.submit
+        = link_to "Add Patient", new_clinic_patient_path(@clinic)
+        %br
+        = link_to "Add Prescription", new_drug_path
+        %br/
+        %br/
+.container
+  .row
+    .col-md-12.text-center
+      %h3
+        %strong Patient List
+.container
+  .row
+    .col-md-12.text-center
+      %ul.list-unstyled
+        - @patients.each do |patient|
+          .col-md-4
+            %br/
+            %li
+              %strong First name:
+              = patient.first_name
+            %li
+              %strong Last name:
+              = patient.last_name
+            %li
+              %strong Description:
+              = patient.description
+            %li
+              %strong DOB:
+              = patient.dob
+            %li
+              %strong Gender:
+              = patient.gender
+            %li
+              %strong Blood Type:
+              = patient.blood_type
+            = link_to "View Patient Records", clinic_patient_path(@clinic, patient)
+            |
+            = link_to "Edit", edit_clinic_patient_path(@clinic, patient)
+            |
+            = link_to "Delete", clinic_patient_path(@clinic, patient), method: :delete
+            %br/
+.container
+  .row
+    .col-md-12.text-center
+      %h3
+        %strong Clinic Doctors
 
-- @doctors.each do |doctor|
-  %strong Name:
-  = doctor.name
-  %br
-  = link_to "Delete Doctor", destroy_doctor_clinic_path(doctor), method: :delete
-  %br
-= link_to "Home", root_path
+.container
+  .row
+    .col-md-12.text-center
+      = form_for @doctor, url: create_doctor_clinic_path(@clinic) do |f| 
+        = f.label :name 
+        = f.text_field :name
+        %br
+        = f.submit
+  - @doctors.each do |doctor|
+    .col-md-3
+      %strong Name:
+      = doctor.name
+      %br
+      = link_to "Delete Doctor", destroy_doctor_clinic_path(doctor), method: :delete
+      %br
+    
 
