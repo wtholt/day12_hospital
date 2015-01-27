@@ -1,8 +1,15 @@
 %h1 Clinics
 %ul
   - @clinics.each do |clinic|
+    %br
     %li= clinic.name
+    %br
     %li= clinic.address
+    %br
     %li= clinic.city
+    %br
     %li= clinic.state
+    %br
     %li= clinic.zip
+    %br
+= link_to "Home", root_path

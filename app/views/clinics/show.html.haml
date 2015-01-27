@@ -60,6 +60,7 @@
 - @doctors.each do |doctor|
   %strong Name:
   = doctor.name
+  %br
   = link_to "Delete Doctor", destroy_doctor_clinic_path(doctor), method: :delete
   %br
 = link_to "Home", root_path
