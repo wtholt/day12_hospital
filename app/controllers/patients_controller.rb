@@ -63,10 +63,9 @@ class PatientsController < ApplicationController
   end
 
   def destroy_doctor
-    #@patient = Patient.find params[:id]
-    @doctor = Doctor.find params[:id]
+    @doctor = Doctor.find(params[:id])
     @doctor.destroy
-    redirect_to doctor.doctorable
+    redirect_to clinic_patient_path(@doctor.doctorable.clinic, @doctor.doctorable)
   end
 
 private
@@ -93,6 +92,6 @@ private
 end
 
 
-  def set_clinic
-    @clinic = Clinic.find params[:id]
+  def set_patient
+    @patient = Patient.find params[:id]
   end
