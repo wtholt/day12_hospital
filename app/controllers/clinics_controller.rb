@@ -47,7 +47,7 @@ class ClinicsController < ApplicationController
     #@clinic = Clinic.find params[:id]
     @doctor = Doctor.find params[:id]
     @doctor.destroy
-    redirect_to clinics_path
+    redirect_to @doctor.doctorable
   end
 
   

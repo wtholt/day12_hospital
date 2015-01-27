@@ -65,7 +65,7 @@ class PatientsController < ApplicationController
   def destroy_doctor
     @doctor = Doctor.find params[:id]
     @doctor.destroy
-    redirect_to clinics_path
+    redirect_to 
   end
 
 private
