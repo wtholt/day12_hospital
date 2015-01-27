@@ -37,6 +37,7 @@ class PatientsController < ApplicationController
     @patient = Patient.find params[:id]
     @clinic = Clinic.find params[:clinic_id]
     @drugs = Drug.all
+    @doctors = @patient.doctors
   end
   
   def update
