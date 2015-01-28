@@ -1,21 +1,29 @@
 .container
   .row
-    .col-md-12.text-center
-      %ul.list-unstyled
-        - @clinics.each do |clinic|
-          %br
-          %strong
-            Clinic Name: 
-          %li= clinic.name
-          %strong
-            Address:
-          %li= clinic.address
-          %strong
-            City:
-          %li= clinic.city
-          %strong
-            State:
-          %li= clinic.state
-          %strong
-            Zip Code:
-          %li= clinic.zip
+    %h2.text-center
+      Our Partners
+    %ul.list-unstyled.list-group
+      - @clinics.each do |clinic|
+        .col-md-4
+          .list-group-item-patients
+            %br
+            %strong
+              Clinic Name: 
+            = clinic.name
+            %br
+            %strong
+              Address:
+            = clinic.address
+            %br
+            %strong
+              City:
+            = clinic.city
+            %br
+            %strong
+              State:
+            = clinic.state
+            %br
+            %strong
+              Zip Code:
+            = clinic.zip
+            %br

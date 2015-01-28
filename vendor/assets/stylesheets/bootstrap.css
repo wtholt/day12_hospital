@@ -4434,7 +4434,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
   color: white;
-  background-color: white;
+  background-color: transparent;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -4449,7 +4449,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #555;
-    background-color: #e7e7e7;
+    background-color: transparent;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
@@ -5331,6 +5331,7 @@ a.list-group-item-danger.active:focus {
 .panel-footer {
   padding: 30px 15px;
   background-color: #FFFAFA;
+  color: #104E8B;
   /*border-top: 1px solid #104E8B;*/
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -6573,3 +6574,31 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+/*My CSS */
+.list-group-item-clinics {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #EBECE4;
+  border: 1px solid #ddd;
+}
+.list-group-item-patients {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #FEF1E9;
+  border: 1px solid #ddd;
+}
+
+.btn-default-clinic {
+  color: white;
+  background-color: #FFFFF2;
+  border-color: #104E8B;
+}
+.btn-default-clinic a:hover {
+  color: white;
+  background-color: #104E8B;
+}

@@ -2,38 +2,59 @@
 .container
   .row
     .col-md-12.text-center
+      %h2
+        %strong All you need from Healthcare in one place.
+.container
+  .row
+    .col-md-4
+      %h4
+        Modernized, for the 21st Century
+    .col-md-4
+      %h4
+        Data Driven, optimized for patients
+    .col-md-4
+      %h4
+        "Patients as People" philosophy
+
+
+.container
+  .row
+    .col-md-12.text-center
       %h3
         Our Partners
 .container
   .row
     .col-md-12.text-center
       %h3
-      .btn.btn-default
+      .btn.btn-default-clinic
         = link_to "New Clinic", new_clinic_path
-    %br/
+      %br
 .container
   .row
-  .col-md-12.text-center
-    / %ul.list-unstyled
-    - @clinics.each do |clinic|
-      .col-md-4
-        %br
-        %strong Name:
-        = link_to clinic.name, clinic_path(clinic)
-        %br
-        %strong Address:
-        = clinic.address
-        %br
-        %strong City:
-        = clinic.city
-        %br
-        %strong State:
-        = clinic.state
-        %br
-        %strong Zip:
-        = clinic.zip
-        %br
-        = link_to "Edit", edit_clinic_path(clinic)
-        |
-        = link_to "Delete", clinic_path(clinic), method: :delete, data: {confirm: "Are you sure you want to delete record?"}
-        %br
+    %ul.list-group
+      - @clinics.each do |clinic|
+        .col-md-4
+          .list-group-item-clinics
+            %br
+            %strong Name:
+            = link_to clinic.name, clinic_path(clinic)
+            %br
+            %strong Address:
+            = clinic.address
+            %br
+            %strong City:
+            = clinic.city
+            %br
+            %strong State:
+            = clinic.state
+            %br
+            %strong Zip:
+            = clinic.zip
+            %br
+            = link_to "Edit", edit_clinic_path(clinic)
+            |
+            = link_to "Delete", clinic_path(clinic), method: :delete, data: {confirm: "Are you sure you want to delete record?"}
+            %br
+
+
+
