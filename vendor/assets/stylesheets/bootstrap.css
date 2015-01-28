@@ -1078,7 +1078,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  background-color: #FFFAFA;
 }
 input,
 button,
@@ -1095,7 +1095,7 @@ a {
 a:hover,
 a:focus {
   color: #23527c;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:focus {
   outline: thin dotted;
@@ -1324,7 +1324,7 @@ mark,
   text-transform: capitalize;
 }
 .text-muted {
-  color: #777;
+  color: #104E8B;
 }
 .text-primary {
   color: #337ab7;
@@ -3019,9 +3019,9 @@ fieldset[disabled] .btn {
   opacity: .65;
 }
 .btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  color: #104E8B;
+  background-color: #FFFFF2;
+  border-color: #104E8B;
 }
 .btn-default:hover,
 .btn-default:focus,
@@ -3029,9 +3029,9 @@ fieldset[disabled] .btn {
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  color: white;
+  background-color: #104E8B;
+  border-color: #104E8B;
 }
 .btn-default:active,
 .btn-default.active,
@@ -4379,49 +4379,52 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #ECF1EF;
   border-color: #e7e7e7;
+  color: #104E8B;
 }
 .navbar-default .navbar-brand {
-  color: #777;
+  color: #104E8B;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #5e5e5e;
+  color: white;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
-  color: #777;
+  color: #104E8B;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777;
+  color: #104E8B;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333;
+  color: white;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #555;
-  background-color: #e7e7e7;
+  color: #104E8B;
+  background-color: #FFFFFE;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
 .navbar-default .navbar-nav > .disabled > a:focus {
-  color: #ccc;
+  color: #104E8B;
   background-color: transparent;
 }
 .navbar-default .navbar-toggle {
-  border-color: #ddd;
+  border-color: #104E8B;
+  background-color: #FFFFF2;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: #ddd;
+  background-color: #104E8B;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #888;
+  background-color: #CDC8B1;
+  color: white;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
@@ -4430,12 +4433,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  color: #555;
-  background-color: #e7e7e7;
+  color: white;
+  background-color: white;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #777;
+    color: #104E8B;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -4838,14 +4841,19 @@ a.badge:focus {
   margin-left: 3px;
 }
 .jumbotron {
-  padding: 30px 15px;
-  margin-bottom: 30px;
-  color: inherit;
-  background-color: #eee;
+  background-image: url("pier.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #104E8B;
+  background-color: #ECF1EF;
 }
 .jumbotron h1,
 .jumbotron .h1 {
-  color: inherit;
+  color: #104E8B;
 }
 .jumbotron p {
   margin-bottom: 15px;
@@ -4862,9 +4870,10 @@ a.badge:focus {
 .jumbotron .container {
   max-width: 100%;
 }
+
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding: 48px 0;
+    padding: 150px 0;
   }
   .container .jumbotron,
   .container-fluid .jumbotron {
@@ -5320,9 +5329,9 @@ a.list-group-item-danger.active:focus {
   color: inherit;
 }
 .panel-footer {
-  padding: 10px 15px;
-  background-color: #f5f5f5;
-  border-top: 1px solid #ddd;
+  padding: 30px 15px;
+  background-color: #FFFAFA;
+  /*border-top: 1px solid #104E8B;*/
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
