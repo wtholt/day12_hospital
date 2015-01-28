@@ -34,12 +34,10 @@
       = drug.description
       = drug.cost
       %br
-  %h4
     Doctors
-  - @doctors.each do |doctor|
-    = check_box_tag 'patient[doctor_ids][]', doctor.id, @patient.doctors.include?(doctor)
-    = doctor.name
+    - @doctors.each do |doctor|
+      = check_box_tag 'patient[doctor_ids][]', doctor.id, @patient.doctors.include?(doctor)
+      = doctor.name
     %br
-  %br
-  = f.submit
+    = f.submit
 = link_to "Cancel", clinic_path(@clinic)
