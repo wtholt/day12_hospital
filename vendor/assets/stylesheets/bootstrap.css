@@ -6602,3 +6602,8 @@ button.close {
   color: white;
   background-color: #104E8B;
 }
+
+.col-md-6.image-2 {
+  height: 0;
+
+}
