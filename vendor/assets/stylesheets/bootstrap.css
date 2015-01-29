@@ -6603,7 +6603,17 @@ button.close {
   background-color: #104E8B;
 }
 
-.col-md-6.image-2 {
-  height: 0;
+/*.col-md-4.image-1 {
+  background-image: url("Data.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: fixed;
+}
+
+.col-md-4.image-2 {
+
+}
+
+.col-md-4.image-3 {
 
 }
