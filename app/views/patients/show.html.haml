@@ -4,6 +4,9 @@
     .col-md-12.text-center
       %ul.list-unstyled
         %li
+          %strong Patient state:
+          = @patient.workflow_state
+        %li
           %strong Patient name:
           = @patient.first_name
           = @patient.last_name
@@ -23,6 +26,39 @@
         %li
           %strong Patient Bloodtype:
           = @patient.blood_type
+.container
+  .row
+    .col-md-12.text-center
+      %h4
+        Patient State Options
+      - if @patient.waiting_room?
+        = link_to "Doctor Check-Up", check_patient_clinic_patient_path(@clinic, @patient), method: :patch
+        |
+        = link_to "X-Ray room", examine_patient_clinic_patient_path(@clinic, @patient), method: :patch
+        |
+        = link_to "Surgery", operate_patient_clinic_patient_path(@clinic, @patient), method: :patch
+        |
+        = link_to "Discharged", leave_patient_clinic_patient_path(@clinic, @patient), method: :patch
+      - if @patient.doctor?
+        = link_to "X-Ray room", examine_patient_clinic_patient_path(@clinic, @patient), method: :patch
+        |
+        = link_to "Surgery", operate_patient_clinic_patient_path(@clinic, @patient), method: :patch
+        |
+        = link_to "Billing", pay_patient_clinic_patient_path(@clinic, @patient), method: :patch
+      - if @patient.xray?
+        = link_to "Doctor Check-Up", check_patient_clinic_patient_path(@clinic, @patient), method: :patch
+        |
+        = link_to "Surgery", operate_patient_clinic_patient_path(@clinic, @patient), method: :patch
+        |
+        = link_to "Billing", pay_patient_clinic_patient_path(@clinic, @patient), method: :patch
+      - if @patient.surgery?
+        = link_to "Doctor Check-Up", check_patient_clinic_patient_path(@clinic, @patient), method: :patch
+        |
+        = link_to "X-Ray room", examine_patient_clinic_patient_path(@clinic, @patient), method: :patch
+        |
+        = link_to "Billing", pay_patient_clinic_patient_path(@clinic, @patient), method: :patch
+      - if @patient.paying?
+        = link_to "Discharged", leave_patient_clinic_patient_path(@clinic, @patient), method: :patch
 .container
   .row
     .col-md-12.text-center

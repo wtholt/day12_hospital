@@ -1,4 +1,17 @@
 class PatientsController < ApplicationController
+  before_action :set_patient, :set_clinic, only: [
+    :show,
+    :edit,
+    :update,
+    :destroy,
+    :create_doctor,
+    :wait_patient,
+    :check_patient,
+    :examine_patient,
+    :operate_patient,
+    :leave_patient,
+    :pay_patient,
+  ]
   def index
     @patients = Patient.all
     # @patient = Patient.find params[:id]
@@ -6,7 +19,6 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @clinic = Clinic.find params[:clinic_id]
     @patient = Patient.find params[:id]
     @drugs = @patient.drugs
     @doctor = Doctor.new
@@ -34,30 +46,22 @@ class PatientsController < ApplicationController
   end
   
   def edit
-    @patient = Patient.find params[:id]
-    @clinic = Clinic.find params[:clinic_id]
     @drugs = Drug.all
     @doctors = @patient.doctors
   end
   
   def update
-    @patient = Patient.find params[:id]
-    @clinic = Clinic.find params[:clinic_id]
     @drugs = Drug.all
     @patient.update_attributes patient_params
     redirect_to clinic_patient_path(@clinic, @patient)
   end
   
   def destroy
-    @patient = Patient.find params[:id]
-    @clinic = Clinic.find params[:clinic_id]
     @patient.destroy
     redirect_to @clinic
   end
 
   def create_doctor
-    @clinic = Clinic.find params[:clinic_id]
-    @patient = Patient.find params[:id]
     @doctor = @patient.doctors.create doctor_params
     redirect_to clinic_patient_path(@clinic, @patient)
   end
@@ -66,6 +70,36 @@ class PatientsController < ApplicationController
     @doctor = Doctor.find(params[:id])
     @doctor.destroy
     redirect_to clinic_patient_path(@doctor.doctorable.clinic, @doctor.doctorable)
+  end
+
+  def wait_patient
+    @patient.wait!
+    redirect_to clinic_patient_path(@clinic, @patient)
+  end
+
+  def examine_patient
+    @patient.examine!
+    redirect_to clinic_patient_path(@clinic, @patient)
+  end
+
+  def operate_patient
+    @patient.operate!
+    redirect_to clinic_patient_path(@clinic, @patient)
+  end
+
+  def check_patient
+    @patient.check!
+    redirect_to clinic_patient_path(@clinic, @patient)
+  end
+
+  def pay_patient
+    @patient.pay!
+    redirect_to clinic_patient_path(@clinic, @patient)
+  end
+
+  def leave_patient
+    @patient.leave!
+    redirect_to clinic_patient_path(@clinic, @patient)
   end
 
 private
@@ -86,12 +120,13 @@ private
         :name,
     )
   end
-
-
-
-end
-
-
+private
   def set_patient
     @patient = Patient.find params[:id]
   end
+private
+  def set_clinic
+    @clinic = Clinic.find params[:clinic_id]
+  end
+
+end

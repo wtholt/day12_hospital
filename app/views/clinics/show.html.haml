@@ -41,7 +41,10 @@
         - @patients.each do |patient|
           .col-md-4
             .list-group-item-patients
-              %br/
+              %br
+              %li
+                %strong Patient state:
+                = patient.workflow_state
               %li
                 %strong First name:
                 = patient.first_name
