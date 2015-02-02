@@ -5,7 +5,6 @@ class ClinicsController < ApplicationController
   end
 
   def show
-    @clinic = Clinic.find params[:id]
     @patients = @clinic.patients
     @doctor = Doctor.new
     @doctors = @clinic.doctors
@@ -16,7 +15,6 @@ class ClinicsController < ApplicationController
   end
 
   def edit
-    @clinic = Clinic.find params[:id]
   end
 
   def create
@@ -26,13 +24,11 @@ class ClinicsController < ApplicationController
   
 
   def update
-    @clinic = Clinic.find params[:id]
     @clinic.update_attributes clinic_params
     redirect_to root_path
   end
 
   def destroy
-    @clinic = Clinic.find params[:id]
     @clinic.destroy
     redirect_to root_path
   end

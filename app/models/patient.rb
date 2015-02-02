@@ -50,6 +50,7 @@ class Patient < ActiveRecord::Base
     state :surgery do
       event :check, transitions_to: :doctor
       event :pay, transitions_to: :paying
+      event :examine, transitions_to: :xray
     end
     state :paying do
       event :leave, transitions_to: :leaving

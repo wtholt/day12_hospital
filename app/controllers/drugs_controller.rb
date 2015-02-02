@@ -1,10 +1,15 @@
 class DrugsController < ApplicationController
+  before_action :set_drug, only: [
+    :show,
+    :edit,
+    :update,
+    :destroy
+  ]
   def index
     @drugs = Drug.all
   end
 
   def show
-    @drug = Drug.find params[:id]
   end
     
   def new
@@ -19,18 +24,15 @@ class DrugsController < ApplicationController
   end
   
   def edit
-    @drug = Drug.find params[:id]
     @patients = Patient.all
   end
 
   def update
-    @drug = Drug.find params[:id]
     @drug.update_attributes drug_params
     redirect_to drugs_path
   end
 
   def destroy
-    @drug = Drug.find params[:id]
     @drug.destroy
     redirect_to drugs_path
   end
@@ -45,5 +47,10 @@ private
     )
   end
 end
+
+private
+  def set_drug
+    @drug = Drug.find params[:id]
+  end
 
 

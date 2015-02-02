@@ -1,26 +1,24 @@
 .container
   .row
-    .col-md-12.text-center.jumbotron
+    .col-md-12.text-center
+      %h3
+        Prescription Info
+
 .container
   .row
     .col-md-12.text-center
+      .list-group-item-patients
+        %strong Prescription name:
+        %br
+        = @drug.name
+        %br
+        %strong Prescription description:
+        %br
+        = @drug.description
+        %br
+        %strong Prescription cost:
+        %br
+        = @drug.cost
+        %br
       = link_to "Edit", edit_drug_path(@drug)
-
-.container
-  .row
-    .col-md-4
-      %strong Prescription name
-      %br
-      = @drug.name
-      %br
-    .col-md-4
-      %strong Prescription description
-      %br
-      = @drug.description
-      %br
-    .col-md-4
-      %strong Prescription cost
-      %br
-      = @drug.cost
-      %br
-
+      = link_to "Delete", drug_path(@drug), method: :delete
