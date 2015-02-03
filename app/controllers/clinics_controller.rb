@@ -1,5 +1,11 @@
 class ClinicsController < ApplicationController
-  before_action :set_clinic, only: [:show, :edit, :update, :destroy]
+  before_action :set_clinic, only: [
+    :show, 
+    :edit, 
+    :update, 
+    :destroy,
+    :create_doctor,
+  ]
   def index
     @clinics = if !params[:q].blank?
       Clinic.where("name LIKE ? OR 
@@ -51,7 +57,6 @@ class ClinicsController < ApplicationController
   end
 
   def create_doctor
-    @clinic = Clinic.find params[:id]
     @doctor = @clinic.doctors.create doctor_params
     redirect_to clinic_path(@clinic)
   end
