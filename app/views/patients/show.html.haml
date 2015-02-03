@@ -43,16 +43,25 @@
       .list-group-item-patients
         %h4
           = link_to "Add/Edit Prescription", edit_clinic_patient_path(@clinic, @patient)
-        %br
         %strong
           Prescription List:
-        - @drugs.each do |drug|
-          %br
-          = drug.name
-          = drug.description
-          = drug.cost
-          %br
-          = link_to "View Prescription", drug_path(drug)
+        %br
+        = form_tag clinic_patient_path(@clinic, @patient), method: :get, class: "navbar-form", role: "search" do
+          .input-group
+            = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search"
+            .input-group-btn
+              %button.btn.btn-default
+                %i.glyphicon.glyphicon-search
+          
+          - @drugs.each do |drug|
+            %br
+            = drug.name
+            |
+            = drug.description
+            |
+            = drug.cost
+            %br
+            = link_to "View Prescription", drug_path(drug)
 %br
 .container
   .row
@@ -72,6 +81,12 @@
       .list-group-item-patients
         %strong
           Doctor List
+        = form_tag clinic_patient_path(@clinic, @patient), method: :get, class: "navbar-form", role: "search" do
+          .input-group
+            = text_field_tag 'y', params[:y], class: "form-control", id: "srch-term", placeholder: "Search"
+            .input-group-btn
+              %button.btn.btn-default
+                %i.glyphicon.glyphicon-search
 
         - @doctors.each do |doctor|
           %br

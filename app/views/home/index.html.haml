@@ -29,40 +29,5 @@
   .row
     .col-md-12.text-center
       %h3
-        Our Partners
-.container
-  .row
-    .col-md-12.text-center
-      %h3
-      .btn.btn-default-clinic
-        = link_to "New Clinic", new_clinic_path
-      %br
-.container
-  .row
-    %ul.list-group
-      - @clinics.each do |clinic|
-        .col-md-4
-          .list-group-item-clinics
-            %br
-            %strong Name:
-            = link_to clinic.name, clinic_path(clinic)
-            %br
-            %strong Address:
-            = clinic.address
-            %br
-            %strong City:
-            = clinic.city
-            %br
-            %strong State:
-            = clinic.state
-            %br
-            %strong Zip:
-            = clinic.zip
-            %br
-            = link_to "Edit", edit_clinic_path(clinic)
-            |
-            = link_to "Delete", clinic_path(clinic), method: :delete, data: {confirm: "Are you sure you want to delete record?"}
-            %br
-
-
+        = link_to "Our Partners", clinics_path
 

@@ -1,13 +1,30 @@
 class ClinicsController < ApplicationController
   before_action :set_clinic, only: [:show, :edit, :update, :destroy]
   def index
-    @clinics = Clinic.all 
+    @clinics = if !params[:q].blank?
+      Clinic.where("name LIKE ? OR 
+        address LIKE ? OR 
+        city LIKE ? OR 
+        state LIKE ? OR
+        zip LIKE ?",
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",)
+    else
+      @clinics = Clinic.all 
+    end
   end
 
   def show
     @patients = @clinic.patients
     @doctor = Doctor.new
-    @doctors = @clinic.doctors
+    @doctors = if !params[:q].blank?
+      @clinic.doctors.where("name LIKE ?", "%#{params[:q]}%")
+    else 
+      @doctors = @clinic.doctors
+    end
   end
 
   def new

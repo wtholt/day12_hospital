@@ -13,16 +13,43 @@ class PatientsController < ApplicationController
     :pay_patient,
   ]
   def index
-    @patients = Patient.all
-    # @patient = Patient.find params[:id]
     @clinic = Clinic.find params[:clinic_id]
+    @patients = if !params[:q].blank?
+      @clinic.patients.where("first_name LIKE ? OR
+        last_name LIKE ? OR
+        description LIKE ? OR
+        dob LIKE ? OR
+        gender LIKE ? OR
+        blood_type LIKE ?", 
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",)
+    else
+      @patients = @clinic.patients
+    end
   end
 
   def show
     @patient = Patient.find params[:id]
-    @drugs = @patient.drugs
+    @drugs = if !params[:q].blank?
+      @patient.drugs.where("name LIKE ? OR
+        description LIKE ? OR
+        cost LIKE ?", 
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",
+        "%#{params[:q]}%")
+    else
+      @drugs = @patient.drugs
+    end
     @doctor = Doctor.new
-    @doctors = @patient.doctors
+    @doctors = if !params[:y].blank?
+      @patient.doctors.where("name LIKE ?", "%#{params[:y]}%")
+    else
+      @doctors = @patient.doctors
+    end
   end
 
   def new

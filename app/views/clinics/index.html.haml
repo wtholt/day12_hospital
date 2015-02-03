@@ -2,6 +2,23 @@
   .row
     %h2.text-center
       Our Partners
+.container
+  .row
+    .col-md-12.text-center
+      = form_tag clinics_path, method: :get, class: "navbar-form", role: "search" do
+        .input-group
+          = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search"
+          .input-group-btn
+            %button.btn.btn-default
+              %i.glyphicon.glyphicon-search
+.container
+  .row
+    .col-md-12.text-center
+      %h3
+      .btn.btn-default-clinic
+        = link_to "New Clinic", new_clinic_path
+      %br
+
     %ul.list-unstyled.list-group
       - @clinics.each do |clinic|
         .col-md-4
