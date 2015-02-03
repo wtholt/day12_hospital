@@ -1,13 +1,14 @@
 = form_for [@drug] do |f|
-  = f.label :name
-  = f.text_field :name
-  %br/
-  = f.label :description
-  = f.text_area :description
-  %br/
-  = f.label :cost
-  = f.text_field :cost
-  %br/
+  .form-group
+    = f.label :name, class: "col-md-2 control-label"
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :description, class: "col-md-2 control-label"
+    = f.text_area :description, class: "form-control"
+  .form-group
+    = f.label :cost, class: "col-md-2 control-label"
+    = f.text_field :cost, class: "form-control"
+
   %h4 Choose Patient
   = hidden_field_tag 'drug[patient_ids][]', ''
   - @patients.each do |patient|
@@ -25,4 +26,6 @@
       |
       = patient.blood_type
   %br
-  = f.submit
+.row 
+  .col-md-12.text-center
+    %button.btn.btn-success{:type => "submit"} Create Drug
