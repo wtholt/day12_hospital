@@ -55,5 +55,6 @@ class Clinic < ActiveRecord::Base
     ["WI", "Wisconsin"],
     ["WY", "Wyoming"],
   ]
+  validates :name, presence: true
 
 end

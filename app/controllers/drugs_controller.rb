@@ -20,7 +20,11 @@ class DrugsController < ApplicationController
   def create
     @drug = Drug.create drug_params
     @patients = Patient.all
-    redirect_to drugs_path
+    if @drug.save
+      redirect_to drugs_path
+    else
+      render :new
+    end
   end
   
   def edit

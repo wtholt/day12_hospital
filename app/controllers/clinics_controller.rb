@@ -42,7 +42,13 @@ class ClinicsController < ApplicationController
 
   def create
     @clinic = Clinic.create clinic_params
-    redirect_to root_path
+    if @clinic.save
+      flash[:notice] = 'Clinic was successfully created'
+      redirect_to clinics_path
+    else
+      flash[:error] = 'Clinic was not saved'
+      render :new
+    end
   end
   
 

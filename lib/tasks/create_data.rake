@@ -6,7 +6,7 @@ task create_data: :environment do
     description: Faker::Lorem.word,
 
   })
-  1.times do
+  10.times do
     Clinic.create!({
       name: Faker::Company.name,
       address: Faker::Address.street_name,
@@ -14,7 +14,7 @@ task create_data: :environment do
       state: Faker::Address.state,
       zip: Faker::Address.zip_code,
       patients: [
-        new_patient
+        #new_patient
       ]
 
     })

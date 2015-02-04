@@ -63,9 +63,10 @@ class PatientsController < ApplicationController
     @clinic = Clinic.find params[:clinic_id]
     @patient = @clinic.patients.create patient_params
     @drugs = Drug.all
+    @doctors = Doctor.all
     if @patient.save
       flash[:notice] = 'Patient was successfully created.'
-    redirect_to @clinic
+    redirect_to clinic_patients_path(@clinic)
   else
       flash[:error] = 'Patient was not saved!'
       render :new
