@@ -3,6 +3,9 @@ $(document).ready(function(){
     validateForm();
   });
 
+  $('.error-drug').delay(1000).fadeOut();
+
+
 function validateForm(){
 
   var name = $('#nameInput').val();

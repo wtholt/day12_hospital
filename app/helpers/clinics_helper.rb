@@ -16,4 +16,5 @@ module ClinicsHelper
       "Patient is in the waiting room"
     end
   end
+
 end
