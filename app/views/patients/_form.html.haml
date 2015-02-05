@@ -29,20 +29,24 @@
   .container
     .row
       %h4.text-center
-        Prescriptions
+        Assign the Patient Prescription(s)
+      %h4.text-center
+        = link_to "View Prescriptions", drugs_path
     %br
     - @drugs.each do |drug|
       .col-md-3
         = check_box_tag 'patient[drug_ids][]', drug.id, @patient.drugs.include?(drug)
-        = drug.name
+        = link_to drug.name, drug_path(drug)
         %br
         = drug.description
         %br
         = drug.cost
         %br
       %br
-    %h4.text-center 
-      Doctors
+    %br
+    .col-md-12.text-center
+      %h4 
+        Doctors
     %br
     - @doctors.each do |doctor|
       .col-md-4

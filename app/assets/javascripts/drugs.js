@@ -4,7 +4,6 @@ $(document).ready(function(){
 
 
 $("ul.link_list > li > a").click(function() {
-  console.log("hi");
   $("ul.drug-pages > li").hide()
   var medication_list = $(this).attr("drug_num")
   $("li.paginatedrug_" + medication_list).show()

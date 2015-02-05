@@ -15,18 +15,23 @@
         %li
           %strong Name:
           = @clinic.name
+          %br
         %li
           %strong Address:
           = @clinic.address
+          %br
         %li
           %strong City:
           = @clinic.city
+          %br
         %li
           %strong State:
           = @clinic.state
+          %br
         %li
           %strong Zip:
           = @clinic.zip
+          %br
       %p
 
         = link_to "Add Patient", new_clinic_patient_path(@clinic)
@@ -54,9 +59,9 @@
     .col-md-12.text-center
       = form_for @doctor, url: create_doctor_clinic_path(@clinic), class: "navbar-form", role: "input" do |f| 
         = f.label :name 
-        = f.text_field :name
+        = f.text_field :name, class: "form-control"
         %button.btn.btn-default
-          %i.glyphicon.glyphicon-ok-sign
+          Create Doctor
       = form_tag clinic_path(@clinic), method: :get, class: "navbar-form", role: "search" do
         .input-group
           = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search"
