@@ -86,7 +86,9 @@ class PatientsController < ApplicationController
   
   def destroy
     @patient.destroy
-    redirect_to @clinic
+    respond_to do |format|
+      format.html { redirect_to clinic_patients_path(@clinic), notice: 'Patient deleted.'}
+    end
   end
 
   def create_doctor

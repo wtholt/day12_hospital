@@ -1,4 +1,5 @@
 class ClinicsController < ApplicationController
+  require 'enumerator'
   before_action :set_clinic, only: [
     :show, 
     :edit, 
@@ -19,7 +20,7 @@ class ClinicsController < ApplicationController
         "%#{params[:q]}%",
         "%#{params[:q]}%",)
     else
-      @clinics = Clinic.all 
+      @clinics = Clinic.all
     end
   end
 
@@ -54,12 +55,16 @@ class ClinicsController < ApplicationController
 
   def update
     @clinic.update_attributes clinic_params
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to clinics_path, notice: 'Clinic updated.'}
+    end
   end
 
   def destroy
     @clinic.destroy
-    redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to clinics_path, notice: 'Clinic was successfully deleted.'}
+    end
   end
 
   def create_doctor

@@ -9,6 +9,11 @@
   %body
     .container
       = render 'layouts/navbar'
+      .row
+        .col-md-12.text-center
+          - if notice || alert
+            %p.notice= notice
+            %p.alert= alert
       = yield
 
       = render 'layouts/footer'

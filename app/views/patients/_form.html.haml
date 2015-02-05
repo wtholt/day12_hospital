@@ -30,11 +30,16 @@
     .row
       %h4.text-center
         Prescriptions
+    %br
     - @drugs.each do |drug|
-      = check_box_tag 'patient[drug_ids][]', drug.id, @patient.drugs.include?(drug)
-      = drug.name
-      = drug.description
-      = drug.cost
+      .col-md-3
+        = check_box_tag 'patient[drug_ids][]', drug.id, @patient.drugs.include?(drug)
+        = drug.name
+        %br
+        = drug.description
+        %br
+        = drug.cost
+        %br
       %br
     %h4.text-center 
       Doctors

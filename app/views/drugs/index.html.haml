@@ -1,25 +1,41 @@
-
 .container
   .row
     .col-md-12.text-center
       = link_to "Home", root_path
       |
       = link_to "Add another Prescription", new_drug_path
-.container
-  .row
-    - @drugs.each do |drug|
-      .col-md-4
-        %br/
-        = link_to "View Prescription", drug_path(drug)
-        %br/
-        %strong Prescription Name:
-        = drug.name
-        %br/
-        %strong Prescription Description:
-        = drug.description
-        %br
-        %strong Prescription Cost:
-        = drug.cost
-        %br
-        = link_to "Edit", edit_drug_path(drug)
-        = link_to "Delete", drug_path(drug), method: :delete
+.row
+- p = 0
+- o = 1
+%ul{class: "drug-pages"}
+  - @drugs.each_slice(10) do |row|
+    %li{class: "paginatedrug_#{p+1}"}
+      - p = p + 1
+      - row.each do |drug|
+        .col-md-4
+          %br
+          %strong Name:
+          = link_to drug.name, drug_path(drug)
+          %br
+          %strong Description:
+          = drug.description
+          %br
+          %strong Cost:
+          = drug.cost
+          %br
+          = link_to "Edit", edit_drug_path(drug)
+          |
+          = link_to "Delete", drug_path(drug), method: :delete
+      %br
+    %br
+  %br
+.col-md-12.text-center
+  %ul{class: "link_list"}
+    - p.times do
+      %li{class: "linkdrug_#{o}"}
+        %a{class: "linkdrug_#{o}", drug_num: o}
+          = "#{o}"
+        |
+      - o += 1
+  %br
+  %br

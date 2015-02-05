@@ -19,29 +19,43 @@
           %button.btn.btn-default
             = link_to "New Clinic", new_clinic_path
       %br
-
-    %ul.list-unstyled.list-group
-      - @clinics.each do |clinic|
+.row
+- page = 0
+- y = 1
+%ul{class: "clinic-pages"}
+  - @clinics.each_slice(10) do |row|
+    %li{class: "paginate_#{page+1}"}
+      - page = page + 1
+      - row.each do |clinic|
         .col-md-4
-          .list-group-item-patients
-            %br
-            %strong
-              Clinic Name: 
-            = link_to clinic.name, clinic_path(clinic)
-            %br
-            %strong
-              Address:
-            = clinic.address
-            %br
-            %strong
-              City:
-            = clinic.city
-            %br
-            %strong
-              State:
-            = clinic.state
-            %br
-            %strong
-              Zip Code:
-            = clinic.zip
-            %br
+          %br
+          %strong Name:
+          = link_to clinic.name, clinic_path(clinic)
+          %br
+          %strong Address:
+          = clinic.address
+          %br
+          %strong City:
+          = clinic.city
+          %br
+          %strong State:
+          = clinic.state
+          %br
+          %strong Zip:
+          = clinic.zip
+          %br
+          = link_to "Edit", edit_clinic_path(clinic)
+          |
+          = link_to "Delete", clinic_path(clinic), method: :delete
+      %br
+  %br
+.col-md-12.text-center
+  %ul{class: "clinic_list"}
+    - page.times do
+      %li{class: "link_#{y}"}
+        %a{class: "link_#{y}", clinic_num: y}
+          = "#{y}"
+        |
+      - y += 1
+%br
+%br

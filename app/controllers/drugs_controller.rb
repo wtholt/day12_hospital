@@ -21,6 +21,7 @@ class DrugsController < ApplicationController
     @drug = Drug.create drug_params
     @patients = Patient.all
     if @drug.save
+      flash[:notice] = 'Drug was successfully created.'
       redirect_to drugs_path
     else
       render :new
@@ -33,12 +34,16 @@ class DrugsController < ApplicationController
 
   def update
     @drug.update_attributes drug_params
-    redirect_to drugs_path
+    respond_to do |format|
+      format.html { redirect_to drugs_path, notice: 'Prescription updated.'}
+    end
   end
 
   def destroy
     @drug.destroy
-    redirect_to drugs_path
+    respond_to do |format|
+      format.html { redirect_to drugs_path, notice: 'Prescription deleted.'}
+    end
   end
 
 private

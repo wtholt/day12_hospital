@@ -42,7 +42,7 @@
     .col-md-12.text-center
       .list-group-item-patients
         %h4
-          = link_to "Add/Edit Prescription", edit_clinic_patient_path(@clinic, @patient)
+          = link_to "Edit Patient", edit_clinic_patient_path(@clinic, @patient)
         %strong
           Prescription List:
         %br
@@ -62,6 +62,10 @@
             = drug.cost
             %br
             = link_to "View Prescription", drug_path(drug)
+            |
+            = link_to "Edit Prescription", edit_drug_path(drug)
+            |
+            = link_to "Delete Prescription", drug_path(drug), method: :delete
 %br
 .container
   .row
