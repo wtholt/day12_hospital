@@ -34,9 +34,9 @@
           %br
       %p
 
-        = link_to "Add Patient", new_clinic_patient_path(@clinic)
+        = link_to "Add Patient", new_clinic_patient_path(@clinic), class: "link"
         %br
-        = link_to "Add Prescription", new_drug_path
+        = link_to "Add Prescription", new_drug_path, class: "link"
         %br/
         %br/
 
@@ -45,7 +45,7 @@
     .col-md-12.text-center
       %h3
         %strong
-          = link_to "View our Patients", clinic_patients_path(@clinic)
+          = link_to "View our Patients", clinic_patients_path(@clinic), class: "link"
 
 .container
   .row

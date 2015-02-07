@@ -2,18 +2,18 @@
 .container
   .row
     .col-md-12.text-center
-      %h2
+      %h2.list-group-item-index
         %strong All you need from Healthcare in one place.
 .container
   .row
     .col-md-4
-      %h4
+      %h4.list-group-item-index
         Modernized. For the 21st Century.
     .col-md-4
-      %h4
+      %h4.list-group-item-index
         Data Driven. Optimized for patients.
     .col-md-4
-      %h4
+      %h4.list-group-item-index
         "Patients as People" philosophy
 .container-fluid
   .row
@@ -28,6 +28,7 @@
 .container
   .row
     .col-md-12.text-center
-      %h3
+      %h3.list-group-item-link
         = link_to "Our Partners", clinics_path
+= render 'home/footer'
 

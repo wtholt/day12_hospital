@@ -2,3 +2,24 @@ li {
   list-style-type: none;
   display: inline;
 }
+
+  .col-md-4.drugs {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: whitesmoke;
+  border: 1px solid #ddd;
+}
+
+.jumbotron-drugs {
+  background-image: url("mountain.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 40% 30%;
+  padding: 100px 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #104E8B;
+  background-color: #ECF1EF;
+}

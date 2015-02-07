@@ -13,6 +13,43 @@ li {
   color: #ffffff;
 }
 
+.btn.btn-default1a:hover{
+  color: #ffffff;
+}
+
+.default1:active{
+  color: #ffffff
+}
+
 .default1:hover{
   color: #ffffff;
+}
+
+.menu-link1:hover{
+  color: #ffffff;
+ }
+
+ .link:hover{
+  color: #ffffff;
+ }
+
+  .col-md-4.clinics {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: whitesmoke;
+  border: 1px solid #ddd;
+}
+
+.jumbotron-clinics {
+  background-image: url("bridge.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 65%;
+  padding: 100px 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #104E8B;
+  background-color: #ECF1EF;
 }

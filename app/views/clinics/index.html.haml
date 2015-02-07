@@ -1,5 +1,8 @@
 .container
   .row
+    .col-md-12.jumbotron-clinics
+.container
+  .row
     %h2.text-center
       Our Partners
 .container
@@ -7,7 +10,7 @@
     .col-md-12.text-center
       = form_tag clinics_path, method: :get, class: "navbar-form", role: "search" do
         .input-group
-          = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search"
+          = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search our Partners..."
           .input-group-btn
             %button.btn.btn-default
               %i.glyphicon.glyphicon-search
@@ -23,11 +26,11 @@
 - page = 0
 - y = 1
 %ul{class: "clinic-pages"}
-  - @clinics.each_slice(10) do |row|
+  - @clinics.each_slice(9) do |row|
     %li{class: "paginate_#{page+1}"}
       - page = page + 1
       - row.each do |clinic|
-        .col-md-4
+        .col-md-4.clinics
           %br
           %strong Name:
           = link_to clinic.name, clinic_path(clinic)
