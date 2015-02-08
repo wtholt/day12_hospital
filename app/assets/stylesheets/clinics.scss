@@ -1,10 +1,7 @@
 #pagination {
   list-style-type: none;
   display: inline;
-  border-radius: 10px;
-  border: solid 1px #c0c0c0;
-  padding: 0px 9px;
-  background: whitesmoke;
+  text-decoration: none;
 }
 .btn.btn-default1{
   color: #104e8b;
@@ -69,4 +66,43 @@
 
 .list-group-item-index:hover {
   color: crimson;
+}
+
+.image-8 {
+  background-image: url("run.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.image-9 {
+  background-image: url("bird.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.image-10 {
+  background-image: url("hangglide.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.jumbotron-icey {
+  background-image: url("icey.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 65%;
+  padding: 100px 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #104E8B;
+  background-color: #ECF1EF;
 }

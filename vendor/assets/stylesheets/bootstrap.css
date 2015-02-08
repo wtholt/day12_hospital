@@ -4841,10 +4841,10 @@ a.badge:focus {
   margin-left: 3px;
 }
 .jumbotron {
-  background-image: url("pier.jpg");
+  background-image: url("library.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: 100% 75%;
   padding: 100px 15px;
   margin-bottom: 20px;
   margin-top: 20px;

@@ -17,7 +17,46 @@ $('ul.clinic_list > li > a').click(function(){
   $('.notice').delay(1000).fadeOut()
 
   $('.jumbotron-clinics').hover(function() {
-    $(this).css("cursor", "pointer");
+    $(this).animate({
+      opacity: 0.50,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.image-8').hover(function() {
+    $(this).animate({
+      opacity: 0.50,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.image-9').hover(function() {
+    $(this).animate({
+      opacity: 0.50,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.image-10').hover(function() {
+    $(this).animate({
+      opacity: 0.50,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.jumbotron-icey').hover(function() {
     $(this).animate({
       opacity: 0.50,
     }, 'slow');
