@@ -66,4 +66,54 @@ function validateForm(){
     }, 'slow');
   });
 
+  $('.image-11').hover(function() {
+    $(this).animate({
+      opacity: 0.65,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.image-12').hover(function() {
+    $(this).animate({
+      opacity: 0.65,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.image-13').hover(function() {
+    $(this).animate({
+      opacity: 0.65,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.jumbotron-view').hover(function() {
+    $(this).animate({
+      opacity: 0.65,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.jumbotron-asia').hover(function() {
+    $(this).animate({
+      opacity: 0.65,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
 });

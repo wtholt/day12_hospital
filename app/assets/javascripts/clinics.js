@@ -56,7 +56,7 @@ $('ul.clinic_list > li > a').click(function(){
     }, 'slow');
   });
 
-  $('.jumbotron-icey').hover(function() {
+  $('.jumbotron-telescope').hover(function() {
     $(this).animate({
       opacity: 0.50,
     }, 'slow');

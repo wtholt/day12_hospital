@@ -36,3 +36,54 @@
   background: whitesmoke;
   padding: 0px 9px;
 }
+
+.image-11 {
+  background-image: url("city.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.image-12 {
+  background-image: url("robust.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.image-13 {
+  background-image: url("camera.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.jumbotron-view {
+  background-image: url("view.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 40%;
+  padding: 100px 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #104E8B;
+  background-color: #ECF1EF;
+}
+
+.jumbotron-asia {
+  background-image: url("asia.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 55%;
+  padding: 100px 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #104E8B;
+  background-color: #ECF1EF;
+}
