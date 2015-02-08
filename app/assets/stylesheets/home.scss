@@ -54,7 +54,33 @@ body {
   background-image: no-repeat;
   background-size: cover;
   height: 300px;
-  width: 400px;
+  width: 450px;
+  border-radius: 5px;
+}
+
+.image-5 {
+  background-image: url("plane.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+.image-6 {
+  background-image: url("skyscraper.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.image-7 {
+  background-image: url("pool.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
   border-radius: 5px;
 }
 
@@ -82,6 +108,6 @@ body {
   background-color: #ECF1EF;
 }
 
-// .section-1 {
-//   background-color: #DDDDDD;
-// }
+.section-2 {
+  background-color: #E8E8E8;
+}

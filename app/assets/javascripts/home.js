@@ -89,6 +89,35 @@ $(document).ready(function(){
     }, 'slow');
   });
 
+  $('.image-5').hover(function(){
+    $(this).animate({
+      opacity: 0.50,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.image-6').hover(function(){
+    $(this).animate({
+      opacity: 0.50,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.image-7').hover(function(){
+    $(this).animate({
+      opacity: 0.50,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
 
 
 
