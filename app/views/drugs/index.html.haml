@@ -18,9 +18,9 @@
 .container
   .row
     .col-md-12.text-center
-      = link_to "Home", root_path
+      = link_to "Home", root_path, class: "border"
       |
-      = link_to "Add another Prescription", new_drug_path
+      = link_to "Add another Prescription", new_drug_path, class: "border"
 .container-fluid
   .row
   - p = 0
@@ -49,10 +49,9 @@
 .col-md-12.text-center
   %ul{class: "link_list"}
     - p.times do
-      %li{class: "linkdrug_#{o}"}
+      %li{class: "linkdrug_#{o}", id: "pagination"}
         %a{class: "linkdrug_#{o}", drug_num: o}
           = "#{o}"
-        |
       - o += 1
 %br
 %br

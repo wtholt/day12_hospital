@@ -1,8 +1,11 @@
-li {
+#pagination {
   list-style-type: none;
   display: inline;
+  border-radius: 10px;
+  border: solid 1px #c0c0c0;
+  padding: 0px 9px;
+  background: whitesmoke;
 }
-
   .col-md-4.drugs {
   position: relative;
   display: block;
@@ -25,4 +28,11 @@ li {
 }
 .drug-headline:hover {
   color: crimson;
+}
+
+.border {
+  border: solid 1px #c0c0c0;
+  border-radius: 5px;
+  background: whitesmoke;
+  padding: 0px 9px;
 }
