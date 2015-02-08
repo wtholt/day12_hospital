@@ -27,7 +27,6 @@ function validateForm(){
   }
 }
   $('.jumbotron-drugs').hover(function() {
-    $(this).css("cursor", "pointer");
     $(this).animate({
       opacity: 0.50,
     }, 'slow');
@@ -38,7 +37,6 @@ function validateForm(){
   });
 
   $('.clinics').hover(function() {
-    $(this).css("cursor", "pointer");
     $(this).animate({
       opacity: 0.65,
     }, 'slow');
@@ -49,7 +47,6 @@ function validateForm(){
   });
 
   $('.drugs').hover(function() {
-    $(this).css("cursor", "pointer");
     $(this).animate({
       opacity: 0.65,
     }, 'slow');
@@ -60,7 +57,6 @@ function validateForm(){
   });
 
   $('.border').hover(function() {
-    $(this).css("cursor", "pointer");
     $(this).animate({
       opacity: 0.65,
     }, 'slow');

@@ -1,3 +1,6 @@
+body {
+  background-color: snow;
+}
 .list-group-item-index {
   position: relative;
   display: block;
@@ -18,3 +21,67 @@
 .partner-link:hover {
   color: crimson;
 }
+
+.image-1 {
+  background-image: url("escalator.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.image-2 {
+  background-image: url("datastuff.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.image-3 {
+  background-image: url("globe.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 211px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.image-4 {
+  background-image: url("map.jpg");
+  background-image: no-repeat;
+  background-size: cover;
+  height: 300px;
+  width: 400px;
+  border-radius: 5px;
+}
+
+.jumbotron-bike {
+  background-image: url("bike.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 60%;
+  padding: 100px 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #104E8B;
+  background-color: #ECF1EF;
+}
+
+.jumbotron-skyline {
+  background-image: url("skyline.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 90% 35%;
+  padding: 100px 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #104E8B;
+  background-color: #ECF1EF;
+}
+
+// .section-1 {
+//   background-color: #DDDDDD;
+// }
