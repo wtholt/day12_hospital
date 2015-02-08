@@ -50,4 +50,15 @@ function validateForm(){
     }, 'slow');
   });
 
+  $('.drugs').hover(function() {
+    $(this).css("cursor", "pointer");
+    $(this).animate({
+      opacity: 0.65,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
 });
