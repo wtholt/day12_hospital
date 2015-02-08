@@ -53,3 +53,12 @@ li {
   color: #104E8B;
   background-color: #ECF1EF;
 }
+
+.list-group-item-index {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: whitesmoke;
+  border: 1px solid #ddd;
+}
