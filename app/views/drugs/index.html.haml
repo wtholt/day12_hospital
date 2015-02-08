@@ -4,39 +4,48 @@
 .container
   .row
     .col-md-12.text-center
-      %h2
+      %h2.drug-headline
         Our Pharmaceutical Partners
+.container
+  .row
+    .col-md-12.text-center
+      = form_tag drugs_path, method: :get, class: "navbar-form", role: "search" do
+        .input-group
+          = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search our Partners..."
+          .input-group-btn
+            %button.btn.btn-default
+              %i.glyphicon.glyphicon-search
 .container
   .row
     .col-md-12.text-center
       = link_to "Home", root_path
       |
       = link_to "Add another Prescription", new_drug_path
-.row
-- p = 0
-- o = 1
-%ul{class: "drug-pages"}
-  - @drugs.each_slice(12) do |row|
-    %li{class: "paginatedrug_#{p+1}"}
-      - p = p + 1
-      - row.each do |drug|
-        .col-md-4.drugs
-          %br
-          %strong Name:
-          = link_to drug.name, drug_path(drug)
-          %br
-          %strong Description:
-          = drug.description
-          %br
-          %strong Cost:
-          = drug.cost
-          %br
-          = link_to "Edit", edit_drug_path(drug)
-          |
-          = link_to "Delete", drug_path(drug), method: :delete
-      %br
+.container-fluid
+  .row
+  - p = 0
+  - o = 1
+  %ul{class: "drug-pages"}
+    - @drugs.each_slice(9) do |row|
+      %li{class: "paginatedrug_#{p+1}"}
+        - p = p + 1
+        - row.each do |drug|
+          .col-md-4.drugs
+            %br
+            %strong Name:
+            = link_to drug.name, drug_path(drug)
+            %br
+            %strong Description:
+            = drug.description
+            %br
+            %strong Cost:
+            = drug.cost
+            %br
+            = link_to "Edit", edit_drug_path(drug)
+            |
+            = link_to "Delete", drug_path(drug), method: :delete
+        %br
     %br
-  %br
 .col-md-12.text-center
   %ul{class: "link_list"}
     - p.times do
@@ -45,5 +54,5 @@
           = "#{o}"
         |
       - o += 1
-  %br
-  %br
+%br
+%br

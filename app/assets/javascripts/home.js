@@ -21,6 +21,17 @@ $(document).ready(function(){
     }, 'slow');
   });
 
+  $('.list-group-item-link').hover(function(){
+    $(this).css("cursor", "pointer");
+    $(this).animate({
+      opacity: "show",
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
 
 
 

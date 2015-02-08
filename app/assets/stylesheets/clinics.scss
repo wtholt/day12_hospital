@@ -1,6 +1,10 @@
-li {
+#pagination {
   list-style-type: none;
   display: inline;
+  border-radius: 5px;
+  border: solid 1px #c0c0c0;
+  padding: 0px 9px;
+  background: whitesmoke;
 }
 .btn.btn-default1{
   color: #104e8b;
@@ -61,4 +65,8 @@ li {
   margin-bottom: -1px;
   background-color: whitesmoke;
   border: 1px solid #ddd;
+}
+
+.list-group-item-index:hover {
+  color: crimson;
 }

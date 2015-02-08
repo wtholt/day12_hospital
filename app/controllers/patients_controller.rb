@@ -34,16 +34,7 @@ class PatientsController < ApplicationController
 
   def show
     @patient = Patient.find params[:id]
-    @drugs = if !params[:q].blank?
-      @patient.drugs.where("name LIKE ? OR
-        description LIKE ? OR
-        cost LIKE ?", 
-        "%#{params[:q]}%",
-        "%#{params[:q]}%",
-        "%#{params[:q]}%")
-    else
-      @drugs = @patient.drugs
-    end
+    @drugs = @patient.drugs
     @doctor = Doctor.new
     @doctors = if !params[:y].blank?
       @patient.doctors.where("name LIKE ?", "%#{params[:y]}%")

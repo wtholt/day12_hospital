@@ -1,8 +1,6 @@
 $(document).ready(function(){
   $('ul.drug-pages > li').hide();
   $('li.paginatedrug_1').show();
-
-
 $("ul.link_list > li > a").click(function() {
   $("ul.drug-pages > li").hide()
   var medication_list = $(this).attr("drug_num")

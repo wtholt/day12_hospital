@@ -6,7 +6,16 @@ class DrugsController < ApplicationController
     :destroy
   ]
   def index
-    @drugs = Drug.all
+    @drugs = if !params[:q].blank?
+      Drug.where("name LIKE ? OR
+        description LIKE ? OR
+        cost LIKE ?", 
+        "%#{params[:q]}%",
+        "%#{params[:q]}%",
+        "%#{params[:q]}%")
+    else
+      @drugs = Drug.all
+    end
   end
 
   def show

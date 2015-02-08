@@ -55,10 +55,9 @@
 .col-md-12.text-center
   %ul{class: "clinic_list"}
     - page.times do
-      %li{class: "link_#{y}"}
+      %li{class: "link_#{y}", id: "pagination"}
         %a{class: "link_#{y}", clinic_num: y}
           = "#{y}"
-        |
       - y += 1
 %br
 %br
