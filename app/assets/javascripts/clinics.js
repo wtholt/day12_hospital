@@ -56,6 +56,37 @@ $('ul.clinic_list > li > a').click(function(){
     }, 'slow');
   });
 
+  $('.image-14').hover(function() {
+    $(this).animate({
+      opacity: 0.50,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.image-15').hover(function() {
+    $(this).animate({
+      opacity: 0.50,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+  $('.section-2').hover(function() {
+    $(this).animate({
+      opacity: 0.50,
+    }, 'slow');
+  }, function() {
+    $(this).animate({
+      opacity: 1,
+    }, 'slow');
+  });
+
+
   $('.jumbotron-telescope').hover(function() {
     $(this).animate({
       opacity: 0.50,
