@@ -5,17 +5,17 @@
         = message
       %br
   .form-group
-    = f.label :first_name, class: "col-sm-2 control-label"
+    = f.label :first_name
     = f.text_field :first_name, class: "form-control", placeholder: "First name", id: "firstNameInput"
   .form-group
-    = f.label :last_name, class: "col-sm-2 control-label"
+    = f.label :last_name
     = f.text_field :last_name, class: "form-control", placeholder: "Last name", id: "lastNameInput"
   .form-group
-    = f.label(:description, "Description", class: "col-sm-2 control-label")
+    = f.label(:description, "Description")
     = f.text_area :description, class: "form-control", placeholder: "Description"
   .form-group
     = f.label(:dob, "DOB")
-    = f.date_select :dob, :start_year => 1900, :end_year => Date.today.year
+    = f.date_field :dob, :start_year => 1900, :end_year => Date.today.year, class: "form-control"
   .form-group
     = f.label(:gender, "Male")
     = f.radio_button(:gender, "Male")
@@ -47,13 +47,14 @@
       %br
 .row
   %h4 
-    Doctors
+    Assign Doctor(s)
     %br
   - @doctors.each do |doctor|
     .col-md-4
       = check_box_tag 'patient[doctor_ids][]', doctor.id, @patient.doctors.include?(doctor)
       = doctor.name
       %br
+%br
 .input-group-btn
   %button.btn.btn-default{id: "create"}
     Create Patient
