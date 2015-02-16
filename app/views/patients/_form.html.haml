@@ -25,6 +25,7 @@
     = f.label(:blood_type, "Blood Type: ")
     = f.select :blood_type, options_for_select(Patient::BLOOD_TYPES, f.object.blood_type)
   %br/
+  = f.submit
   = hidden_field_tag 'patient[drug_ids][]', ''
 
 .row
@@ -55,7 +56,4 @@
       = doctor.name
       %br
 %br
-.input-group-btn
-  %button.btn.btn-default{id: "create"}
-    Create Patient
 = link_to "Cancel", clinic_path(@clinic)

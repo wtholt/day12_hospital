@@ -1,12 +1,11 @@
 .container
   .row
     .col-md-12.text-center
-      = form_tag clinic_patients_path(@clinic), method: :get, class: "navbar-form", role: "search" do
-        .input-group
-          = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search"
-          .input-group-btn
-            %button.btn.btn-default
-              %i.glyphicon.glyphicon-search
+      %form.search_form
+        .form-inline
+          %label{:for => "search_patient_name"} Search Patient:
+          = text_field_tag :search_patient_name, '', class: 'form-control'
+          %a#search_patient_button.btn.btn-primary Search
 .container
   .row
     .col-md-12.text-center
@@ -15,25 +14,25 @@
           .col-md-4
             .list-group-item-patients
               %br
-              %li
+              %li{class: "patient-#{patient.id}"}
                 %strong Patient state:
                 = workflow_state_helper_method(patient)
-              %li
+                %br
                 %strong First name:
                 = patient.first_name
-              %li
+                %br
                 %strong Last name:
                 = patient.last_name
-              %li
+                %br
                 %strong Description:
                 = patient.description
-              %li
+                %br
                 %strong DOB:
                 = patient.dob
-              %li
+                %br
                 %strong Gender:
                 = patient.gender
-              %li
+                %br
                 %strong Blood Type:
                 = patient.blood_type
               = link_to "View Patient Records", clinic_patient_path(@clinic, patient)

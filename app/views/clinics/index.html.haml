@@ -59,12 +59,11 @@
 .container
   .row
     .col-md-12.text-center
-      = form_tag clinics_path, method: :get, class: "navbar-form", role: "search" do
-        .input-group
-          = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search our Partners..."
-          .input-group-btn
-            %button.btn.btn-default
-              %i.glyphicon.glyphicon-search
+      %form#search_form
+        .form-inline
+          %label{:for => "search_clinic_name"} Search Clinic by Name:
+          = text_field_tag :search_clinic_name, '', class: 'form-control'
+          %a#search_clinic_button.btn.btn-primary Search
 .container
   .row
     .col-md-12.text-center
@@ -81,7 +80,7 @@
     %li{class: "paginate_#{page+1}"}
       - page = page + 1
       - row.each do |clinic|
-        .col-md-4.clinics
+        .col-md-4.clinics{class: "clinic-#{clinic.id}"}
           %br
           %strong Name:
           = link_to clinic.name, clinic_path(clinic)

@@ -17,6 +17,59 @@ function validateForm(){
     $('#lastNameInput').after('Please enter a last name')
   }
 }
-  
-
 });
+
+$(document).on('click', '.check-patient', function(){
+  console.log('hello');
+  var clinic_id = $(this).attr('clinic_id');
+  var patient_id = $(this).attr('patient_id');
+  $.ajax({
+    type: 'PATCH',
+    url: '/clinics/' + clinic_id + '/patients/' + patient_id + '/check_patient',
+    dataType: 'script',
+  })
+})
+
+$(document).on('click', '.examine-patient', function(){
+  console.log('hello');
+  var clinic_id = $(this).attr("clinic_id");
+  var patient_id = $(this).attr("patient_id");
+  $.ajax({
+    type: 'PATCH',
+    url: '/clinics/' + clinic_id + '/patients/' + patient_id + '/examine_patient',
+    dataType: 'script',
+  })
+})
+
+$(document).on('click', '.operate-patient', function(){
+  console.log('hello');
+  var clinic_id = $(this).attr("clinic_id");
+  var patient_id = $(this).attr("patient_id");
+  $.ajax({
+    type: 'PATCH',
+    url: '/clinics/' + clinic_id + '/patients/' + patient_id + '/operate_patient',
+    dataType: 'script',
+  })
+})
+
+$(document).on('click', '.leave-patient', function(){
+  console.log('hello');
+  var clinic_id = $(this).attr("clinic_id");
+  var patient_id = $(this).attr("patient_id");
+  $.ajax({
+    type: 'PATCH',
+    url: '/clinics/' + clinic_id + '/patients/' + patient_id + '/leave_patient',
+    dataType: 'script',
+  })
+})
+
+$(document).on('click', '.pay-patient', function(){
+  console.log('hello');
+  var clinic_id = $(this).attr('clinic_id');
+  var patient_id = $(this).attr('patient_id');
+  $.ajax({
+    type: 'PATCH',
+    url: '/clinics/' + clinic_id + '/patients/' + patient_id + '/pay_patient',
+    dataType: 'script',
+  })
+})

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       post :create_doctor
       delete :destroy_doctor
     end
+    collection do 
+      get 'search'
+    end
     resources :patients do
       member do
         post :create_doctor

@@ -80,7 +80,7 @@
       %li{class: "paginatedrug_#{p+1}"}
         - p = p + 1
         - row.each do |drug|
-          .col-md-4.drugs
+          .col-md-3.drugs
             %br
             %strong Name:
             = link_to drug.name, drug_path(drug)

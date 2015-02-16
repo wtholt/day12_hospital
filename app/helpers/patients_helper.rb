@@ -24,28 +24,28 @@ module PatientsHelper
   def patient_state?(patient)
     array_of_links = []
     waiting_room_links = [
-      (link_to "Doctor Check-Up", check_patient_clinic_patient_path(@clinic, @patient), method: :patch),
-      (link_to "X-Ray room", examine_patient_clinic_patient_path(@clinic, @patient), method: :patch),
-      (link_to "Surgery", operate_patient_clinic_patient_path(@clinic, @patient), method: :patch),
-      (link_to "Discharged", leave_patient_clinic_patient_path(@clinic, @patient), method: :patch)
+      (link_to "Doctor Check-Up", 'javascript:void(0);', class: "check-patient", clinic_id: @clinic.id, patient_id: patient.id),
+      (link_to "X-Ray room", 'javascript:void(0);', class: "examine-patient", clinic_id: @clinic.id, patient_id: patient.id),
+      (link_to "Surgery", 'javascript:void(0);', class: "operate-patient", clinic_id: @clinic.id, patient_id: patient.id),
+      (link_to "Discharged", 'javascript:void(0);', class: "leave-patient", clinic_id: @clinic.id, patient_id: patient.id)
     ]
     doctor_links = [
-      (link_to "X-Ray room", examine_patient_clinic_patient_path(@clinic, @patient), method: :patch),
-      (link_to "Surgery", operate_patient_clinic_patient_path(@clinic, @patient), method: :patch),
-      (link_to "Billing", pay_patient_clinic_patient_path(@clinic, @patient), method: :patch),
+      (link_to "X-Ray room", 'javascript:void(0);', class: "examine-patient", clinic_id: @clinic.id, patient_id: patient.id),
+      (link_to "Surgery", 'javascript:void(0);', class: "operate-patient", clinic_id: @clinic.id, patient_id: patient.id),
+      (link_to "Billing", 'javascript:void(0);', class: 'pay-patient', clinic_id: @clinic.id, patient_id: patient.id),
     ]
     xray_links = [
-      (link_to "Doctor Check-Up", check_patient_clinic_patient_path(@clinic, @patient), method: :patch),
-      (link_to "Surgery", operate_patient_clinic_patient_path(@clinic, @patient), method: :patch),
-      (link_to "Billing", pay_patient_clinic_patient_path(@clinic, @patient), method: :patch)
+      (link_to "Doctor Check-Up", 'javascript:void(0);', class: "check-patient", clinic_id: @clinic.id, patient_id: patient.id),
+      (link_to "Surgery", 'javascript:void(0);', class: "operate-patient", clinic_id: @clinic.id, patient_id: patient.id),
+      (link_to "Billing", 'javascript:void(0);', class: 'pay-patient', clinic_id: @clinic.id, patient_id: patient.id),
     ]
     surgery_links = [
-      (link_to "Doctor Check-Up", check_patient_clinic_patient_path(@clinic, @patient), method: :patch),
-      (link_to "X-Ray room", examine_patient_clinic_patient_path(@clinic, @patient), method: :patch),
-      (link_to "Billing", pay_patient_clinic_patient_path(@clinic, @patient), method: :patch),
+      (link_to "Doctor Check-Up", 'javascript:void(0);', class: "check-patient", clinic_id: @clinic.id, patient_id: patient.id),
+      (link_to "X-Ray room", 'javascript:void(0);', class: "examine-patient", clinic_id: @clinic.id, patient_id: patient.id),
+      (link_to "Billing", 'javascript:void(0);', class: 'pay-patient', clinic_id: @clinic.id, patient_id: patient.id),
     ]
     paying_links = [
-      (link_to "Discharged", leave_patient_clinic_patient_path(@clinic, @patient), method: :patch)
+      (link_to "Discharged", 'javascript:void(0);', class: "leave-patient", clinic_id: @clinic.id, patient_id: patient.id)
     ]
     # if the patient has the checkup event on it
       # array_of_links.push(checkup link_to)

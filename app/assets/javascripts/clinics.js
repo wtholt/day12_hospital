@@ -107,3 +107,16 @@ function validateForm(){
 }
 
 });
+
+$(document).on('click', '#search_clinic_button', function() {
+  $.get('/clinics/search', {'search_clinic_name': $('#search_clinic_name').val()})
+});
+
+$(document).on('click', '.show_clinic', function() {
+  var clinic_id = $(this).attr("clinic_id");
+  $.ajax({
+    type: 'GET',
+    url: '/clinics/',
+    dataType: 'script',
+  })
+});

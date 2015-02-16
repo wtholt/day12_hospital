@@ -14,25 +14,11 @@ class PatientsController < ApplicationController
   ]
   def index
     @clinic = Clinic.find params[:clinic_id]
-    @patients = if !params[:q].blank?
-      @clinic.patients.where("first_name LIKE ? OR
-        last_name LIKE ? OR
-        description LIKE ? OR
-        dob LIKE ? OR
-        gender LIKE ? OR
-        blood_type LIKE ?", 
-        "%#{params[:q]}%",
-        "%#{params[:q]}%",
-        "%#{params[:q]}%",
-        "%#{params[:q]}%",
-        "%#{params[:q]}%",
-        "%#{params[:q]}%",)
-    else
-      @patients = @clinic.patients
-    end
+    @patients = @clinic.patients
   end
 
   def show
+    @clinic = Clinic.find params[:clinic_id]
     @patient = Patient.find params[:id]
     @drugs = @patient.drugs
     @doctor = Doctor.new
@@ -95,32 +81,47 @@ class PatientsController < ApplicationController
 
   def wait_patient
     @patient.wait!
-    redirect_to clinic_patient_path(@clinic, @patient)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def examine_patient
     @patient.examine!
-    redirect_to clinic_patient_path(@clinic, @patient)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def operate_patient
     @patient.operate!
-    redirect_to clinic_patient_path(@clinic, @patient)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def check_patient
     @patient.check!
-    redirect_to clinic_patient_path(@clinic, @patient)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def pay_patient
     @patient.pay!
-    redirect_to clinic_patient_path(@clinic, @patient)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def leave_patient
     @patient.leave!
-    redirect_to clinic_patient_path(@clinic, @patient)
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def search
   end
 
 private
@@ -151,3 +152,18 @@ private
   end
 
 end
+
+# @patients = if !params[:q].blank?
+#       @clinic.patients.where("first_name LIKE ? OR
+#         last_name LIKE ? OR
+#         description LIKE ? OR
+#         dob LIKE ? OR
+#         gender LIKE ? OR
+#         blood_type LIKE ?", 
+#         "%#{params[:q]}%",
+#         "%#{params[:q]}%",
+#         "%#{params[:q]}%",
+#         "%#{params[:q]}%",
+#         "%#{params[:q]}%",
+#         "%#{params[:q]}%",)
+#     else

@@ -28,14 +28,7 @@
           %li
             %strong Patient Bloodtype:
             = @patient.blood_type
-.container
-  .row
-    .col-md-12.text-center
-      .list-group-item-patients
-        %h4
-          Patient State Options
-        / helper method
-        = patient_state?(@patient)
+= render 'patients/show_state'
 %br
 .container
   .row

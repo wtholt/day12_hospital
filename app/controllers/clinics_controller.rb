@@ -8,20 +8,7 @@ class ClinicsController < ApplicationController
     :create_doctor,
   ]
   def index
-    @clinics = if !params[:q].blank?
-      Clinic.where("name LIKE ? OR 
-        address LIKE ? OR 
-        city LIKE ? OR 
-        state LIKE ? OR
-        zip LIKE ?",
-        "%#{params[:q]}%",
-        "%#{params[:q]}%",
-        "%#{params[:q]}%",
-        "%#{params[:q]}%",
-        "%#{params[:q]}%",)
-    else
-      @clinics = Clinic.all
-    end
+    @clinics = Clinic.all
   end
 
   def show
@@ -79,6 +66,10 @@ class ClinicsController < ApplicationController
     redirect_to @doctor.doctorable
   end
 
+  def search
+    @clinics = Clinic.where("name LIKE ?", "%#{params[:search_clinic_name]}%")
+  end
+
   
 private
   def clinic_params
@@ -101,3 +92,15 @@ private
   def set_clinic
     @clinic = Clinic.find(params[:id])
   end
+
+
+# Clinic.where("name LIKE ? OR 
+#         address LIKE ? OR 
+#         city LIKE ? OR 
+#         state LIKE ? OR
+#         zip LIKE ?",
+#         "%#{params[:q]}%",
+#         "%#{params[:q]}%",
+#         "%#{params[:q]}%",
+#         "%#{params[:q]}%",
+#         "%#{params[:q]}%",)
