@@ -12,7 +12,14 @@ class ClinicsController < ApplicationController
   end
 
   def show
-    @patients = @clinic.patients
+    @patients = if !params[:q].blank?
+      @patients = @clinic.patients.where("first_name LIKE ? 
+        OR last_name LIKE ?",
+         "%#{params[:q]}%",
+         "%#{params[:q]}%" )
+    else
+      @patients = @clinic.patients
+    end
     @doctor = Doctor.new
     @doctors = if !params[:q].blank?
       @clinic.doctors.where("name LIKE ?", "%#{params[:q]}%")

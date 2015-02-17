@@ -122,6 +122,12 @@ class PatientsController < ApplicationController
   end
 
   def search
+    @clinic = Clinic.find params[:clinic_id]
+    @patients = @clinic.patients.where("first_name LIKE ? OR last_name LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
 private

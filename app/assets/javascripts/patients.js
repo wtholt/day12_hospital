@@ -73,3 +73,15 @@ $(document).on('click', '.pay-patient', function(){
     dataType: 'script',
   })
 })
+
+$(document).on('click', '.submit-search', function() {
+  console.log('hi')
+  var clinic_id = $(this).attr('clinic_id');
+  var search = $(".search-patient").val()
+  $.ajax({
+    type: "GET",
+    url: '/clinics/' + clinic_id + '/patients/' + 'search',
+    dataType: 'script',
+    data: {q: search}
+  })
+});
