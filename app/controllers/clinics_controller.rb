@@ -75,6 +75,10 @@ class ClinicsController < ApplicationController
 
   def search
     @clinics = Clinic.where("name LIKE ?", "%#{params[:search_clinic_name]}%")
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   

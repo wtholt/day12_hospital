@@ -1,22 +1,22 @@
 module PatientsHelper
   def patient_workflow(patient_object)
-    patient_object.workflow_state
+    patient_object.current_state
   end
 
   def workflow_state_helper_method(patient)
-  if patient.workflow_state == "waiting_room"
+  if patient.current_state == "waiting_room"
     "Patient is in the waiting room"
-  elsif patient.workflow_state == "doctor"
+  elsif patient.current_state == "doctor"
     "Patient is with the Doctor"
-  elsif patient.workflow_state == "xray"
+  elsif patient.current_state == "xray"
     "Patient is in the examination room"
-  elsif patient.workflow_state == "surgery"
+  elsif patient.current_state == "surgery"
     "Patient is in surgery"
-  elsif patient.workflow_state == "paying"
+  elsif patient.current_state == "paying"
     "Patient is paying"
-  elsif patient.workflow_state == "leaving"
+  elsif patient.current_state == "leaving"
     "Patient is being discharged"
-  elsif patient.workflow_state == "wait"
+  elsif patient.current_state == "wait"
     "Patient is in the Waiting Room"
   end
   end

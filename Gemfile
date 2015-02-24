@@ -55,5 +55,9 @@ group :development, :test do
 
   gem 'quiet_assets'
 
+  gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda-matchers'
+
+
 end
 

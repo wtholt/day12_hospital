@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :clinics do
+    collection do 
+      get 'search'
+    end
     member do
       post :create_doctor
       delete :destroy_doctor

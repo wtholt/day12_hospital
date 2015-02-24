@@ -1,0 +1,27 @@
+%ul{class: "clinic-pages"}
+  - @clinics.each_slice(9) do |row|
+    %li{class: "paginate_#{page+1}"}
+      - page = page + 1
+      - row.each do |clinic|
+        .col-md-4.clinics{class: "clinic-#{clinic.id}"}
+          %br
+          %strong Name:
+          = link_to clinic.name, clinic_path(clinic)
+          %br
+          %strong Address:
+          = clinic.address
+          %br
+          %strong City:
+          = clinic.city
+          %br
+          %strong State:
+          = clinic.state
+          %br
+          %strong Zip:
+          = clinic.zip
+          %br
+          = link_to "Edit", edit_clinic_path(clinic)
+          |
+          = link_to "Delete", clinic_path(clinic), method: :delete
+      %br
+  %br
