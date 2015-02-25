@@ -13,8 +13,8 @@ RSpec.describe ClinicsHelper, type: :helper do
       })
   end
 
-  # it 'should return default work state' do 
-  #   expect(helper.workflow_state_helper_method(subject)).to eq("waiting_room")
-  # end
+  it 'should return default work state' do 
+    expect(helper.workflow_state_helper_method(subject)).to eq("Patient is in the waiting room")
+  end
 
 end

@@ -5,7 +5,7 @@ RSpec.describe Patient, type: :model do
     Patient.new({
       first_name: "first name",
       last_name: "last name",
-      dob: 1990-01-27,
+      dob: 12.years.ago,
       description: "lfkajfdalldfkjaldfjaldjfakdfja;",
       gender: "gender",
       blood_type: "blood type",
@@ -40,7 +40,7 @@ RSpec.describe Patient, type: :model do
   it "should have info" do 
     expect(subject.first_name).to eq("first name")
     expect(subject.last_name).to eq("last name")
-    expect(subject.dob).to eq(1990-01-27)
+    expect(subject.dob).to eq(12.years.ago.to_date)
     expect(subject.description).to eq("lfkajfdalldfkjaldfjaldjfakdfja;")
     expect(subject.gender).to eq("gender")
     expect(subject.blood_type).to eq("blood type")
@@ -107,6 +107,66 @@ RSpec.describe Patient, type: :model do
   it { should have_many(:patient_drugs)}
 
   it { should have_many(:drugs)}
+
+  it "should be able to transfer from waiting room" do 
+    subject.save
+    subject.wait!
+    expect(subject.current_state.events.keys).to eq([
+        :wait,
+        :check,
+        :examine,
+        :operate,
+        :leave
+      ])
+  end
+
+  it "should be able to transfer from xray" do 
+    subject.save
+    subject.examine!
+    expect(subject.current_state.events.keys).to eq([
+      :check,
+      :operate,
+      :pay
+    ])
+  end
+
+  it "should transfer from doctor" do 
+    subject.save
+    subject.check!
+    expect(subject.current_state.events.keys).to eq([
+      :examine,
+      :operate,
+      :pay
+    ])
+  end
+
+  it "should transfer from surgery" do 
+    subject.save
+    subject.operate!
+    expect(subject.current_state.events.keys).to eq([
+      :check,
+      :pay,
+      :examine
+    ])
+  end
+
+  it "should transfer from paying" do 
+    subject.save
+    subject.operate!
+    subject.pay!
+    expect(subject.current_state.events.keys).to eq([
+      :leave
+    ])
+  end
+
+  it "should transfer from leaving" do 
+    subject.save
+    subject.operate!
+    subject.pay!
+    subject.leave!
+    expect(subject.current_state.events.keys).to eq([
+      ])
+  end
 
 end
 
