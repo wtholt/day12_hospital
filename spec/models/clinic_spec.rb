@@ -47,6 +47,46 @@ RSpec.describe Clinic, type: :model do
     expect(subject.zip).to eq(29464)
   end
 
+  it "should have a name" do 
+    expect(subject.name).to eq("Clinic")
+  end
+
+  it "should not have a name" do 
+    expect(subject.name).to_not eq(nil)
+  end
+
+  it 'should have an address' do
+    expect(subject.address).to eq('144 Heritage Circle')
+  end
+
+  it 'should not have an address' do 
+    expect(subject.address).not_to eq(nil)
+  end
+
+  it 'should have a city' do
+    expect(subject.city).to eq('City')
+  end
+
+  it 'shouldnt not have a city' do 
+    expect(subject.city).not_to eq(nil)
+  end
+
+  it 'should have a state' do
+    expect(subject.state).to eq('SC') 
+  end
+
+  it 'should not have a state' do 
+    expect(subject.state).to_not eq(nil)
+  end
+
+  it 'should have a zip' do 
+    expect(subject.zip).to eq(29464)
+  end
+
+  it 'should not have a zip' do 
+    expect(subject.zip).to_not eq(nil)
+  end
+
   it "should have info" do
     expect(subject.name).not_to eq(nil)
     expect(subject.address).not_to eq(nil)

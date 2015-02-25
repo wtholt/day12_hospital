@@ -57,6 +57,12 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'factory_girl_rails'
+  gem 'chromedriver-helper'
+  gem 'database_cleaner', '~> 1.4.0'
 
 
 end

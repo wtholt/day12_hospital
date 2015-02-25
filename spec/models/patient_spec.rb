@@ -57,6 +57,46 @@ RSpec.describe Patient, type: :model do
     expect(subject.clinic_id).not_to eq(nil)
   end
 
+  it 'should have a first name' do 
+    expect(subject.first_name).to eq('first name')
+  end
+
+  it 'shouldnt not have a first name' do
+    expect(subject.first_name).to_not eq(nil)
+  end
+
+  it 'should have a last name' do 
+    expect(subject.last_name).to eq('last name')
+  end
+
+  it 'shouldnt not have a last name' do 
+    expect(subject.last_name).not_to eq(nil)
+  end
+
+  it 'should have a dob' do
+    expect(subject.dob).to eq(12.years.ago.to_date)
+  end
+
+  it 'shouldnt not have a dob' do
+    expect(subject.dob).not_to eq(nil)
+  end
+
+  it 'should have a gender' do 
+    expect(subject.gender).to eq('gender')
+  end
+
+  it 'shouldnt not have a gender' do
+    expect(subject.gender).not_to eq(nil)
+  end
+
+  it 'should have a blood type' do
+    expect(subject.blood_type).to eq('blood type')
+  end
+
+  it 'shouldnt not have a blood type' do
+    expect(subject.blood_type).not_to eq(nil)
+  end
+
   it "should validate when no first name" do
     new_patient = Patient.new
     expect(new_patient.valid?).to eq(false)
