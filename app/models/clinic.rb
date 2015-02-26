@@ -1,8 +1,8 @@
 class Clinic < ActiveRecord::Base
-      has_many :patients, dependent: :destroy
-      has_many :drugs#, through: :patients
-
-      has_many :doctors, as: :doctorable
+  include Filterable
+  has_many :patients, dependent: :destroy
+  has_many :drugs#, through: :patients
+  has_many :doctors, as: :doctorable
   STATES = [
     ["AL", "Alabama"],
     ["AK", "Alaska"],
@@ -60,5 +60,7 @@ class Clinic < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
   validates :zip, presence: true
+
+  scope :starts_with, -> (name) { where("name like ?", "%#{name}%")}
 
 end

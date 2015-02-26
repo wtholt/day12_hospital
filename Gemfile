@@ -60,7 +60,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'selenium-webdriver'
-  gem 'factory_girl_rails'
+  gem "factory_girl_rails", "~> 4.0"
   gem 'chromedriver-helper'
   gem 'database_cleaner', '~> 1.4.0'
 

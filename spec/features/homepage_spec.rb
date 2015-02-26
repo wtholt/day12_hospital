@@ -15,8 +15,16 @@ describe 'homepage features' do
 end
 
 describe 'homepage hospitals' do 
-  it 'should visit hospitals' do 
-    click_link 'menu-link1'
+  it 'should visit hospitals from root path' do 
+    visit root_path
+    click_link 'Hospitals'
+  end
+end
+
+describe 'homepage to prescriptions' do 
+  it 'should visit prescriptions from root path' do 
+    visit root_path
+    click_link 'Prescriptions'
   end
 end
 
@@ -112,12 +120,3 @@ describe 'add prescription' do
     save_and_open_page
   end
 end
-
-describe 'prescriptions page' do
-  it 'should be able to visit prescription index' do
-    visit root_path
-    click_link 'Prescriptions'
-    save_and_open_page
-  end
-end
-

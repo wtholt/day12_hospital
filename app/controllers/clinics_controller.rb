@@ -8,7 +8,11 @@ class ClinicsController < ApplicationController
     :create_doctor,
   ]
   def index
+    @clinics = if !params[:q].blank?
+      @clinics = Clinic.where("name like ?", "%#{params[:q]}%")
+  else
     @clinics = Clinic.all
+  end
   end
 
   def show
@@ -49,8 +53,13 @@ class ClinicsController < ApplicationController
 
   def update
     @clinic.update_attributes clinic_params
-    respond_to do |format|
-      format.html { redirect_to clinics_path, notice: 'Clinic updated.'}
+    if @clinic.save
+      respond_to do |format|
+        format.html { redirect_to clinics_path, notice: 'Clinic updated.'}
+      end
+    else
+      flash[:error] = 'Clinic was not saved'
+      render :new
     end
   end
 
