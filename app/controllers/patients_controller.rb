@@ -58,7 +58,13 @@ class PatientsController < ApplicationController
   def update
     @drugs = Drug.all
     @patient.update_attributes patient_params
-    redirect_to clinic_patient_path(@clinic, @patient)
+    if @patient.save
+      redirect_to clinic_patient_path(@clinic, @patient)
+      flash[:notice] = 'Patient updated'
+    else
+      flash[:error] = 'Patient was not updated'
+      render :new
+    end
   end
   
   def destroy

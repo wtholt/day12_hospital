@@ -82,14 +82,6 @@ class ClinicsController < ApplicationController
     redirect_to @doctor.doctorable
   end
 
-  def search
-    @clinics = Clinic.where("name LIKE ?", "%#{params[:search_clinic_name]}%")
-    respond_to do |format|
-      format.js
-      format.html
-    end
-  end
-
   
 private
   def clinic_params

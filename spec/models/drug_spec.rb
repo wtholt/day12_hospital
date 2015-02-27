@@ -29,6 +29,8 @@ RSpec.describe Drug, type: :model do
     expect(subject.description).not_to eq(nil)
   end
 
-  it 'should have a cost'
+  it 'should have a cost' do 
+    expect(subject.cost).not_to eq(nil)
+  end
 
 end

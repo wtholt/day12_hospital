@@ -4,7 +4,7 @@ require 'database_cleaner'
 describe 'homepage' do 
   it 'should open page' do 
     visit root_path
-    save_and_open_page
+    # save_and_open_page
   end
 end
 
@@ -29,7 +29,7 @@ describe 'homepage to prescriptions' do
 end
 
 describe 'homepage' do
-  it 'should be able to add a clinic', type: :feature, js: true do
+  it 'should be able to add a clinic' do
     visit clinics_path
     click_link 'New Clinic'
     fill_in 'Name', with: 'Clinic'
@@ -40,7 +40,7 @@ describe 'homepage' do
     click_button 'Create Clinic'
     expect(page).to have_content('Clinic was successfully created')
     expect(page).not_to have_content('Welcome!')
-    # save_and_open_page
+    save_and_open_page
   end
 end
 
@@ -49,7 +49,7 @@ describe 'going to a clinic' do
   it "should be able to go to a specific clinic" do
     visit clinics_path
     visit '/clinics/10'
-    save_and_open_page
+    # save_and_open_page
   end
 end
 
@@ -65,7 +65,7 @@ describe 'edit' do
     fill_in 'Zip', with: 29401
     click_button 'Create Clinic'
     expect(page).to have_content('Clinic updated.')
-    save_and_open_page
+    # save_and_open_page
   end
 end
 
@@ -75,7 +75,7 @@ describe 'delete clinic' do
     visit '/clinics/10'
     click_link 'Delete Clinic'
     expect(page).to have_content('Clinic was successfully deleted.')
-    save_and_open_page
+    # save_and_open_page
   end
 end
 
@@ -84,7 +84,7 @@ describe 'show clinic patients' do
     visit clinics_path
     visit '/clinics/10'
     click_link 'View Clinic Patients'
-    save_and_open_page
+    # save_and_open_page
   end
 end
 
@@ -103,7 +103,7 @@ describe 'add a patient' do
     expect(page).to have_content('Patient was successfully created.')
     expect(page).to have_content('Edit')
     expect(page).to have_content('Patient is in the waiting room')
-    save_and_open_page
+    # save_and_open_page
   end
 end
 
@@ -117,6 +117,6 @@ describe 'add prescription' do
     fill_in 'Cost', with: 1.0
     click_button 'Create Drug'
     expect(page).to have_content('Drug was successfully created.')
-    save_and_open_page
+    # save_and_open_page
   end
 end

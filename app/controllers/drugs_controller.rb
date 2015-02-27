@@ -33,6 +33,7 @@ class DrugsController < ApplicationController
       flash[:notice] = 'Drug was successfully created.'
       redirect_to drugs_path
     else
+      flash[:error] = 'Drug was not saved.'
       render :new
     end
   end

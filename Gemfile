@@ -34,6 +34,8 @@ gem 'workflow', '~> 1.2.0'
 
 gem 'will_paginate', '~> 3.0.6'
 
+gem 'thin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -63,6 +65,9 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
   gem 'chromedriver-helper'
   gem 'database_cleaner', '~> 1.4.0'
+
+  gem 'simplecov', :require => false
+
 
 
 end
