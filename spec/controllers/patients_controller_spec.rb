@@ -120,6 +120,71 @@ describe PatientsController do
     end
   end
 
+  describe 'POST #create_doctor' do 
+    it 'should create a doctor' do 
+      expect{
+        post :create_doctor, id: patient, clinic_id: clinic, doctor: {
+          name: 'Name'
+        }
+      }.to change(Doctor, :count).by(1)
+      expect(assigns(:patient)).to eq patient
+      expect(assigns(:doctor).class).to eq Doctor
+      expect(assigns(:doctor).doctorable_id).to eq patient.id
+      expect(assigns(:doctor).doctorable_type).to eq 'Patient'
+      expect(response).to redirect_to clinic_patient_path(clinic, patient)
+    end
+  end
+
+  describe 'DELETE #destroy_doctor' do 
+    it 'should delete a doctor' do 
+      doctor
+      Doctor.count(1)
+      expect{
+        delete :destroy_doctor, id: doctor
+      }
+      Doctor.count(0)
+    end
+  end
+
+  describe 'PATCH #examine_patient' do 
+    it 'should send the patient to xray' do 
+      xhr :patch, :examine_patient, id: patient, clinic_id: clinic
+    end
+  end
+
+  # describe 'PATCH #wait_patient' do 
+  #   it 'should send the patient to the waiting room' do 
+  #     xhr :patch, :wait_patient, id: patient, clinic_id: clinic
+  #   end
+  # end
+
+  describe 'PATCH #operate_patient' do 
+    it 'should send the patient to surgery' do 
+      xhr :patch, :operate_patient, id: patient, clinic_id: clinic
+    end
+  end
+
+  describe 'PATCH #check_patient' do 
+    it 'should send the patient to the doctor' do 
+      xhr :patch, :check_patient, id: patient, clinic_id: clinic
+    end
+  end
+
+  describe 'PATCH #pay_patient' do 
+    it 'should send the patient to billing' do
+      patient.check! 
+      xhr :patch, :pay_patient, id: patient, clinic_id: clinic
+    end
+  end
+
+  describe 'PATCH #leave_patient' do 
+    it 'should discharge the patient' do 
+      patient.check!
+      patient.pay!
+      xhr :patch, :leave_patient, id: patient, clinic_id: clinic
+    end
+  end
+
 
   # def update
   #   @drugs = Drug.all

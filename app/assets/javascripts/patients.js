@@ -36,7 +36,7 @@ $(document).on('click', '.examine-patient', function(){
   var patient_id = $(this).attr("patient_id");
   $.ajax({
     type: 'PATCH',
-    url: '/clinics/' + clinic_id + '/patients/' + patient_id + '/examine_patient',
+    url: '/clinics/' + clinic_id + '/patients/' + patient_id + '/examine_patient'
     dataType: 'script',
   })
 })
