@@ -1,5 +1,4 @@
 class Clinic < ActiveRecord::Base
-  include Filterable
   has_many :patients, dependent: :destroy
   has_many :drugs#, through: :patients
   has_many :doctors, as: :doctorable

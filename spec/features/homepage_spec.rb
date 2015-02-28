@@ -4,7 +4,7 @@ require 'database_cleaner'
 describe 'homepage' do 
   it 'should open page' do 
     visit root_path
-    # save_and_open_page
+    save_and_open_page
   end
 end
 
@@ -18,6 +18,14 @@ describe 'homepage hospitals' do
   it 'should visit hospitals from root path' do 
     visit root_path
     click_link 'Hospitals'
+    save_and_open_page
+  end
+
+  it 'should fill in search bar' do 
+    visit clinics_path
+    fill_in 'srch-term', with: 'Clinic is awesome'
+    click_button 'search'
+    expect(page).to have_content('Clinic is awesome')
   end
 end
 
@@ -103,7 +111,47 @@ describe 'add a patient' do
     expect(page).to have_content('Patient was successfully created.')
     expect(page).to have_content('Edit')
     expect(page).to have_content('Patient is in the waiting room')
-    # save_and_open_page
+  end
+end
+
+describe 'edit a patient' do 
+  it 'should be able to edit a patient' do 
+    visit clinics_path
+    visit '/clinics/10'
+    click_link 'Add Patient'
+    fill_in 'First name', with: 'first name'
+    fill_in 'Last name', with: 'last name'
+    fill_in 'Description', with: 'description'
+    fill_in 'DOB', with: '01/27/1990'
+    choose 'patient_gender_male'
+    select 'A+', from: 'Blood Type'
+    click_button 'Create Patient'
+    click_link 'Edit'
+    save_and_open_page
+  end
+end
+
+describe 'update a patient' do 
+  it 'should be able to update a patient' do 
+    visit clinics_path
+    visit '/clinics/10'
+    click_link 'Add Patient'
+    fill_in 'First name', with: 'first name'
+    fill_in 'Last name', with: 'last name'
+    fill_in 'Description', with: 'description'
+    fill_in 'DOB', with: '01/27/1990'
+    choose 'patient_gender_male'
+    select 'A+', from: 'Blood Type'
+    click_button 'Create Patient'
+    click_link 'Edit'
+    fill_in 'First name', with: 'first name has been updated'
+    fill_in 'Last name', with: 'last name has been updated'
+    fill_in 'Description', with: 'description has been updated'
+    fill_in 'DOB', with: '01/28/1990'
+    choose 'patient_gender_female'
+    select 'AB+', from: 'Blood Type'
+    click_button 'Update Patient'
+    expect(page).to have_content('Patient updated')
   end
 end
 

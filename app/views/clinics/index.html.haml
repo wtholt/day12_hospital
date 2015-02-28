@@ -63,7 +63,7 @@
         .input-group
           = text_field_tag 'q', params[:q], class: "form-control", id: "srch-term", placeholder: "Search our Partners..."
           .input-group-btn
-            %button.btn.btn-default
+            %button.btn.btn-default{id: "search"}
               %i.glyphicon.glyphicon-search
 .container
   .row

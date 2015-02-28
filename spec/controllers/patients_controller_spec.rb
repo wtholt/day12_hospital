@@ -21,12 +21,20 @@ describe PatientsController do
       expect(response).to render_template :show
     end
 
-    # it 'should show a drug object' do
-    #   get :show, id: drug, patient: patient
-    #   expect(assigns(:drug)).to eq drug
-    #   expect(assigns(:drug)).not_to eq(nil)
-    #   expect(response).to render_template :show
-    # end
+    it 'should show a drug object' do
+      get :show, id: patient, clinic_id: clinic
+      expect(assigns(:patient)).to eq patient
+      expect(assigns(:drugs).length).to eq(0)
+      expect(assigns(:drugs)).to eq([])
+      expect(assigns(:drugs).class).to eq(Drug::ActiveRecord_Associations_CollectionProxy)
+    end
+
+    it 'should show a doctor object' do 
+      get :show, id: patient, clinic_id: clinic
+      expect(assigns(:patient)).to eq patient
+      expect(assigns(:doctor).new_record?).to eq(true)
+      expect(assigns(:doctor).class).to eq(Doctor)
+    end
 
     # it 'should initialize a new doctor object' do 
     #   get :show, id: doctor, doctorable_type: patient
@@ -37,6 +45,7 @@ describe PatientsController do
     it 'should initialize a new patient' do 
       get :new, id: patient, clinic_id: clinic
       expect(assigns(:patient).class).to eq Patient
+      expect(assigns(:patient)).not_to eq nil
       expect(assigns(:patient).new_record?).to eq(true)
     end
     
@@ -184,7 +193,6 @@ describe PatientsController do
       xhr :patch, :leave_patient, id: patient, clinic_id: clinic
     end
   end
-
 
   # def update
   #   @drugs = Drug.all
