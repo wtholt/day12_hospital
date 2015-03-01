@@ -1,6 +1,6 @@
 module PatientsHelper
   def patient_workflow(patient_object)
-    patient_object.current_state
+    patient_object.workflow_state
   end
 
   def workflow_state_helper_method(patient)
