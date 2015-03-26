@@ -3,6 +3,7 @@ if ENV['RAILS_ENV'] == 'test'
   SimpleCov.start 'rails'
   puts "required simplecov"
 end
+
 #!/usr/bin/env ruby
 begin
   load File.expand_path("../spring", __FILE__)
